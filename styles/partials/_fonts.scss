@@ -1,0 +1,28 @@
+//are we using ttf-truetype or otf-opentype fonts?
+
+/* Regular */
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/Font/alternative-files/avenir-next-lt-pro-regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Demi */
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/Font/alternative-files/avenir-next-lt-pro-demi.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Bold */
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/Font/alternative-files/avenir-next-lt-pro-bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
