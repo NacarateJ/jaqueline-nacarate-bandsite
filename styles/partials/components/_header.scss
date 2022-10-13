@@ -1,0 +1,94 @@
+@use "../colors" as *;
+@use "../breakpoints" as breakpoints;
+
+/* styles for header for mobile */
+
+.header {
+  background-color: $band-site-black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__band-name {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding: 16px 0;
+    color: $white;
+    text-align: center;
+  }
+
+  &__navigation {
+    width: 60%;
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding-left: 0;
+    padding-bottom: 1rem;
+    margin: 0;
+  }
+
+  &__menu-item {
+    color: $silver;
+    &:active {
+      color: $white;
+    }
+  }
+
+  &__menu-item-link {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+/* styles for header on tablet device */
+@include breakpoints.medium {
+  .header {
+    flex-direction: row;
+    width: 100vw;
+    height: 25vh;
+    align-items: center;
+    text-align: left;
+
+    &__band-name {
+      font-weight: 500;
+      font-size: 2rem;
+      line-height: 2rem;
+      padding: 2.5rem 1rem 2.5rem 2.5rem;
+    }
+
+    &__menu {
+      flex-direction: row;
+      justify-content: left;
+    }
+
+    &__menu-item {
+      padding: 1rem 0 0 3rem;
+      color: $silver;
+      &:active {
+        color: $white;
+      }
+    }
+
+    &__menu-item-link {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
+
+/* header styling for medium pixel density devices and tablet landscape */
+@include breakpoints.large {
+  .header {
+    &__band-name {
+      font-size: 1.5rem;
+      padding-left: 10rem;
+    }
+    &__menu-item {
+      font-size: 1rem;
+    }
+  }
+}
