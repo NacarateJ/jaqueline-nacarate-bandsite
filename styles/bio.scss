@@ -1,13 +1,12 @@
 @use "./partials/fonts";
 @use "./partials/components/header";
-@use "./partials/components/mainContend";
+@use "./partials/components/mainContent";
 @use "./partials/components/footer";
 
 html,
 body {
   margin: 0;
   font-family: "Avenir Next";
-  line-height: 1.8rem; /*should i set line-height here as well?*/
   height: 100vh;
   box-sizing: border-box;
 }

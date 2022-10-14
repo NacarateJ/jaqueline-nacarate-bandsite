@@ -41,9 +41,9 @@
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 2rem;
-  padding: 16px 0;
   color: #ffffff;
   text-align: center;
+  padding: 1rem 0 0.5rem 0;
 }
 .header__navigation {
   width: 60%;
@@ -72,22 +72,21 @@
   .header {
     flex-direction: row;
     width: 100vw;
-    height: 25vh;
-    align-items: center;
     text-align: left;
+    height: 15vh;
   }
   .header__band-name {
     font-weight: 500;
-    font-size: 2rem;
+    font-size: 1rem;
     line-height: 2rem;
-    padding: 2.5rem 1rem 2.5rem 2.5rem;
+    padding: 0 0 0 2rem;
   }
   .header__menu {
-    flex-direction: row;
     justify-content: left;
+    padding: 0;
   }
   .header__menu-item {
-    padding: 1rem 0 0 3rem;
+    padding-left: 3rem;
     color: #afafaf;
   }
   .header__menu-item:active {
@@ -100,19 +99,153 @@
 }
 /* header styling for medium pixel density devices and tablet landscape */
 @media only screen and (min-width: 1280px) {
+  .header {
+    flex-direction: row;
+    width: 100vw;
+    text-align: left;
+    height: 12vh;
+  }
   .header__band-name {
+    font-weight: 500;
     font-size: 1.5rem;
-    padding-left: 10rem;
+    line-height: 2rem;
+    padding: 0 0 0 8rem;
   }
   .header__menu-item {
+    padding-left: 3rem;
     font-size: 1rem;
+    color: #afafaf;
+  }
+  .header__menu-item:active {
+    color: #ffffff;
+  }
+}
+.hero__bio-img {
+  background-image: url(../../../assets/Images/hero-bio.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #323232;
+  background-blend-mode: soft-light;
+  display: flex;
+  align-items: center;
+  height: 40vh;
+}
+.hero__bio-txt {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  padding-left: 2rem;
+}
+
+.main-content {
+  flex-direction: column;
+  display: flex;
+}
+.main-content .about {
+  display: flex;
+  flex-direction: column;
+}
+.main-content .about__title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  padding-left: 1rem;
+}
+.main-content .about__img {
+  margin: 0 1rem;
+  width: 90%;
+  height: 35vh;
+}
+.main-content .about__img-subtitle {
+  font-weight: 600;
+  margin: 1rem;
+}
+.main-content .about__img-suntitle-name {
+  font-weight: 600;
+  margin: 0 1rem;
+}
+.main-content .about__band-name {
+  margin: 1.5rem 0 0 1rem;
+}
+.main-content .about__band-history {
+  margin: 0 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero__bio-img {
+    width: 100%;
+    height: 85vh;
+  }
+  .hero__bio-txt {
+    font-size: 3.8rem;
+  }
+  .main-content .about__title {
+    font-size: 2.5rem;
+  }
+  .main-content .about__img {
+    margin: 0 5rem;
+    width: 80%;
+    height: 70vh;
+  }
+  .main-content .about__img-subtitle {
+    font-weight: 600;
+    font-size: 1.5rem;
+    inline-size: 39rem;
+    margin: 2rem 5rem 1rem 5rem;
+  }
+  .main-content .about__img-suntitle-name {
+    font-weight: 600;
+    margin: 0 5rem;
+  }
+  .main-content .about__band-name {
+    margin: 4rem 0 1rem 5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .main-content .about__band-history {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 5rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .hero__bio-img {
+    width: 100%;
+    height: 100vh;
+  }
+  .hero__bio-txt {
+    padding-left: 8rem;
+    font-size: 3.5rem;
+  }
+  .main-content .about__title {
+    margin: 3rem 0;
+    padding-left: 8rem;
+  }
+  .main-content .about__img {
+    margin: 0 14rem;
+    width: 65%;
+    height: 65vh;
+  }
+  .main-content .about__img-subtitle {
+    inline-size: 45rem;
+    margin: 2rem 14rem 1rem 14rem;
+  }
+  .main-content .about__img-suntitle-name {
+    margin: 0 14rem;
+  }
+  .main-content .about__band-name {
+    margin: 4rem 0 1rem 14rem;
+  }
+  .main-content .about__band-history {
+    margin: 0 14rem;
   }
 }
 html,
 body {
   margin: 0;
   font-family: "Avenir Next";
-  line-height: 1.8rem; /*should i set line-height here as well?*/
   height: 100vh;
   box-sizing: border-box;
 }
