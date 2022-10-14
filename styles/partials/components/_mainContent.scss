@@ -65,6 +65,29 @@
       margin: 0 1rem;
     }
   }
+
+  .gallery {
+    background-color: $silver;
+  }
+  .gallery-title {
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding-left: 1rem;
+  }
+
+  .photo-gallery {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-items: center;
+
+    &__gallery-img {
+      margin: 1rem 1rem;
+      width: 90%;
+      height: 35vh;
+    }
+  }
 }
 
 // Hero img for Tablet
