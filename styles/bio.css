@@ -172,6 +172,26 @@
 .main-content .about__band-history {
   margin: 0 1rem;
 }
+.main-content .gallery {
+  background-color: #afafaf;
+}
+.main-content .gallery-title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  padding-left: 1rem;
+}
+.main-content .photo-gallery {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-items: center;
+}
+.main-content .photo-gallery__gallery-img {
+  margin: 1rem 1rem;
+  width: 90%;
+  height: 35vh;
+}
 
 @media only screen and (min-width: 768px) {
   .hero__bio-img {
