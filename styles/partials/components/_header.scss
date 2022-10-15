@@ -28,20 +28,25 @@
     padding-left: 0;
     padding-bottom: 1rem;
     margin: 0;
-  }
 
-  &__menu-item {
-    color: $silver;
-    &:active {
-      color: $white;
+    &-item {
+      &-link {
+        text-decoration: none;
+        color: $white;
+      }
     }
   }
 
-  &__menu-item-link {
-    text-decoration: none;
-    color: inherit;
+  .active {
+    border-bottom: 1px solid white;
   }
 }
+
+// &__menu-item-link {
+//   border-bottom: 1rem solid $white;
+//   text-decoration: none;
+//   color: inherit;
+// }
 
 /* styles for header on tablet device */
 @include medium {

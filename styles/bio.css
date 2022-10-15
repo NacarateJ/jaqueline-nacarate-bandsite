@@ -29,7 +29,8 @@
 /*Alternative light background color*/
 /* media query for mobile */
 /* media query for tablet min-width */
-/* media query for high pixel density devices */
+/* media query for desktop */
+/*grayscale effect for photo gallery*/
 /* styles for header for mobile */
 .header {
   background-color: #323232;
@@ -56,15 +57,12 @@
   padding-bottom: 1rem;
   margin: 0;
 }
-.header__menu-item {
-  color: #afafaf;
-}
-.header__menu-item:active {
-  color: #ffffff;
-}
 .header__menu-item-link {
   text-decoration: none;
-  color: inherit;
+  color: #ffffff;
+}
+.header .active {
+  border-bottom: 1px solid white;
 }
 
 /* styles for header on tablet device */
@@ -137,7 +135,7 @@
   position: absolute;
 }
 .hero__bio-img {
-  background-image: url(../../../assets/Images/hero-bio.jpg);
+  background-image: url(../assets/Images/hero-bio.jpg);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -170,6 +168,10 @@
   inline-size: 19rem;
 }
 .about__img-subtitle-name {
+  font-weight: 600;
+}
+.about__band-name {
+  padding-top: 1rem;
   font-weight: 600;
 }
 
@@ -215,16 +217,19 @@
   .about__band-name {
     font-weight: 600;
     font-size: 1.5rem;
+    padding-top: 3rem;
   }
   .about__band-history {
     display: flex;
     gap: 1.5rem;
+    padding-bottom: 1rem;
   }
   .photo__gallery {
     padding: 0 2rem 2rem 2rem;
   }
   .photo__gallery-collection {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 2rem;
   }
@@ -271,10 +276,12 @@
 }
 .footer__social-media-icon {
   padding: 1rem 2rem 0 0;
+  width: 4rem;
+  height: 2.5rem;
 }
 .footer__band-logo {
   position: absolute;
-  top: 36rem;
+  top: 38rem;
 }
 .footer__nav-bar {
   display: flex;
@@ -311,13 +318,17 @@
   }
   .footer__band-logo {
     position: absolute;
-    bottom: 27rem;
     left: 38rem;
   }
   .footer__menu {
     display: flex;
     gap: 3rem;
     padding-left: 1rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .footer {
+    padding-left: 2rem;
   }
 }
 html,

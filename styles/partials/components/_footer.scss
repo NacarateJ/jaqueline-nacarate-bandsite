@@ -15,16 +15,19 @@
 
   &__social-media-icon {
     padding: 1rem 2rem 0 0;
+    width: 4rem;
+    height: 2.5rem;
   }
 
   &__band-logo {
     position: absolute;
-    top: 36rem;
+    top: 38rem;
   }
 
   &__nav-bar {
     display: flex;
     flex-direction: column;
+    
   }
 
   &__menu {
@@ -67,7 +70,6 @@
 
     &__band-logo {
       position: absolute;
-      bottom: 27rem;
       left: 38rem;
     }
 
@@ -76,5 +78,12 @@
       gap: 3rem;
       padding-left: 1rem;
     }
+  }
+}
+
+// Footer for Desktop
+@include large {
+  .footer {
+    padding-left: 2rem;
   }
 }
