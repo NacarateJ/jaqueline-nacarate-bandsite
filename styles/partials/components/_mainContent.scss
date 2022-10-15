@@ -21,7 +21,7 @@
   }
 
   &__bio-img {
-    background-image: url(../../../assets/Images/hero-bio.jpg);
+    background-image: url(../assets/Images/hero-bio.jpg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -58,6 +58,11 @@
   &__img-subtitle-name {
     font-weight: 600;
   }
+
+  &__band-name {
+    padding-top: 1rem;
+    font-weight: 600;
+  }
 }
 
 .photo__gallery {
@@ -69,12 +74,11 @@
   &-title {
     font-weight: 600;
   }
-
-  &-img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
-  }
+    &-img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
 }
 
 // Hero img for Tablet
@@ -113,11 +117,13 @@
     &__band-name {
       font-weight: 600;
       font-size: 1.5rem;
+      padding-top: 3rem;
     }
 
     &__band-history {
       display: flex;
       gap: 1.5rem;
+      padding-bottom: 1rem;
     }
   }
 
@@ -126,6 +132,7 @@
 
     &-collection {
       display: flex;
+      justify-content: center;
       flex-wrap: wrap;
       gap: 2rem;
     }

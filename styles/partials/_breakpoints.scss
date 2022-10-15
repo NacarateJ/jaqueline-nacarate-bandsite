@@ -1,11 +1,11 @@
 $mobile-max-width: 767px;
 $tablet-min-width: 768px;
 $desktop-min-width: 1280px;
+$value: 100%;
 
 /* media query for mobile */
 @mixin small {
   @media only screen and (max-width: $mobile-max-width) {
-    /* placeholder for css properties that needs to be applied for this media query */
     @content;
   }
 }
@@ -17,9 +17,16 @@ $desktop-min-width: 1280px;
   }
 }
 
-/* media query for high pixel density devices */
+/* media query for desktop */
 @mixin large {
   @media only screen and (min-width: $desktop-min-width) {
     @content;
   }
 }
+
+/*grayscale effect for photo gallery*/
+// @mixin grayscale_effect($value) {
+//   -webkit-filter: grayscale($value);
+//   -moz-filter: grayscale($value);
+//   filter: grayscale($value);
+// }
