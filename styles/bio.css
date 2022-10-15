@@ -120,77 +120,72 @@
     color: #ffffff;
   }
 }
-.hero__bio-img {
-  background-image: url(../../../assets/Images/hero-bio.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+.hero {
+  position: relative;
   background-color: #323232;
-  background-blend-mode: soft-light;
   display: flex;
-  align-items: center;
-  height: 40vh;
+  flex-direction: column;
+  justify-content: center;
 }
 .hero__bio-txt {
+  z-index: 9999;
   color: #ffffff;
   font-weight: 600;
   font-size: 1.5rem;
   line-height: 2rem;
   padding-left: 2rem;
+  position: absolute;
+}
+.hero__bio-img {
+  background-image: url(../../../assets/Images/hero-bio.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  height: 40vh;
+  opacity: 50%;
 }
 
-.main-content {
-  flex-direction: column;
-  display: flex;
-}
-.main-content .about {
-  display: flex;
-  flex-direction: column;
-}
-.main-content .about__title {
+.about__title {
+  padding: 0 1rem 0 1rem;
   font-weight: 600;
   font-size: 1.5rem;
   line-height: 2rem;
-  padding-left: 1rem;
 }
-.main-content .about__img {
-  margin: 0 1rem;
-  width: 90%;
-  height: 35vh;
-}
-.main-content .about__img-subtitle {
-  font-weight: 600;
-  margin: 1rem;
-}
-.main-content .about__img-suntitle-name {
-  font-weight: 600;
-  margin: 0 1rem;
-}
-.main-content .about__band-name {
-  margin: 1.5rem 0 0 1rem;
-}
-.main-content .about__band-history {
-  margin: 0 1rem;
-}
-.main-content .gallery {
-  background-color: #afafaf;
-}
-.main-content .gallery-title {
-  font-weight: 600;
-  font-size: 1.5rem;
-  line-height: 2rem;
-  padding-left: 1rem;
-}
-.main-content .photo-gallery {
+
+.about {
   display: flex;
   flex-direction: column;
-  align-content: center;
-  justify-items: center;
+  padding: 0 1rem 0 1rem;
 }
-.main-content .photo-gallery__gallery-img {
-  margin: 1rem 1rem;
-  width: 90%;
+.about__img {
+  width: 100%;
   height: 35vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.about__img-subtitle {
+  font-weight: 600;
+  inline-size: 19rem;
+}
+.about__img-subtitle-name {
+  font-weight: 600;
+}
+
+.photo__gallery {
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem 0 1rem;
+}
+.photo__gallery-title {
+  font-weight: 600;
+}
+.photo__gallery-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
 }
 
 @media only screen and (min-width: 768px) {
@@ -201,65 +196,128 @@
   .hero__bio-txt {
     font-size: 3.8rem;
   }
-  .main-content .about__title {
+  .about__title {
     font-size: 2.5rem;
+    margin: 3rem 0 2rem 2rem;
   }
-  .main-content .about__img {
-    margin: 0 5rem;
-    width: 80%;
+  .about {
+    padding: 0 5rem 0 5rem;
+  }
+  .about__img {
+    width: 100%;
     height: 70vh;
   }
-  .main-content .about__img-subtitle {
+  .about__img-subtitle {
     font-weight: 600;
     font-size: 1.5rem;
     inline-size: 39rem;
-    margin: 2rem 5rem 1rem 5rem;
   }
-  .main-content .about__img-suntitle-name {
+  .about__band-name {
     font-weight: 600;
-    margin: 0 5rem;
-  }
-  .main-content .about__band-name {
-    margin: 4rem 0 1rem 5rem;
     font-size: 1.5rem;
-    font-weight: 600;
   }
-  .main-content .about__band-history {
+  .about__band-history {
     display: flex;
-    justify-content: space-around;
-    margin: 0 5rem;
+    gap: 1.5rem;
+  }
+  .photo__gallery {
+    padding: 0 2rem 2rem 2rem;
+  }
+  .photo__gallery-collection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .photo__gallery-img {
+    display: inline-block;
+    width: 30%;
+    height: auto;
+    margin-bottom: 0;
   }
 }
 @media only screen and (min-width: 1280px) {
-  .hero__bio-img {
-    width: 100%;
-    height: 100vh;
-  }
   .hero__bio-txt {
     padding-left: 8rem;
     font-size: 3.5rem;
   }
-  .main-content .about__title {
-    margin: 3rem 0;
-    padding-left: 8rem;
+  .about__title {
+    margin: 3rem 0 2rem 8rem;
   }
-  .main-content .about__img {
-    margin: 0 14rem;
-    width: 65%;
-    height: 65vh;
+  .about {
+    padding: 0 14rem 0 14rem;
   }
-  .main-content .about__img-subtitle {
+  .about__img {
+    height: 50vh;
+  }
+  .about__img-subtitle {
     inline-size: 45rem;
-    margin: 2rem 14rem 1rem 14rem;
   }
-  .main-content .about__img-suntitle-name {
-    margin: 0 14rem;
+  .photo__gallery-img {
+    display: inline-block;
+    width: 30%;
+    height: auto;
+    margin-bottom: 0;
   }
-  .main-content .about__band-name {
-    margin: 4rem 0 1rem 14rem;
+}
+.footer {
+  background-color: #323232;
+  color: #ffffff;
+  padding: 2rem 0 0.5rem 1rem;
+}
+.footer__upper {
+  font-size: 1.5rem;
+  font-weight: 600;
+  position: relative;
+}
+.footer__social-media-icon {
+  padding: 1rem 2rem 0 0;
+}
+.footer__band-logo {
+  position: absolute;
+  top: 36rem;
+}
+.footer__nav-bar {
+  display: flex;
+  flex-direction: column;
+}
+.footer__menu {
+  padding: 0 5rem 0 0;
+  list-style-type: none;
+}
+.footer__contact {
+  padding-bottom: 1rem;
+}
+.footer__email {
+  color: #ffffff;
+  text-decoration: none;
+}
+.footer__bottom {
+  padding-top: 6rem;
+  font-size: 0.7rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer__upper {
+    display: flex;
+    font-size: 3rem;
+    padding: 1rem;
+    position: relative;
   }
-  .main-content .about__band-history {
-    margin: 0 14rem;
+  .footer__title-text {
+    padding-right: 2rem;
+  }
+  .footer__social-media-icon {
+    padding-right: 0.5rem;
+  }
+  .footer__band-logo {
+    position: absolute;
+    bottom: 27rem;
+    left: 38rem;
+  }
+  .footer__menu {
+    display: flex;
+    gap: 3rem;
+    padding-left: 1rem;
   }
 }
 html,

@@ -4,89 +4,76 @@
 // Hero img for Mobile
 
 .hero {
-  &__bio-img {
-    background-image: url(../../../assets/Images/hero-bio.jpg);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: $band-site-black;
-    background-blend-mode: soft-light;
-    display: flex;
-    align-items: center;
-    height: 40vh;
-  }
+  position: relative;
+  background-color: $band-site-black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   &__bio-txt {
+    z-index: 9999;
     color: $white;
     font-weight: 600;
     font-size: 1.5rem;
     line-height: 2rem;
     padding-left: 2rem;
+    position: absolute;
+  }
+
+  &__bio-img {
+    background-image: url(../../../assets/Images/hero-bio.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    height: 40vh;
+    opacity: 50%;
   }
 }
 
 // Main for Mobile
-.main-content {
-  flex-direction: column;
+.about__title {
+  padding: 0 1rem 0 1rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.about {
   display: flex;
+  flex-direction: column;
+  padding: 0 1rem 0 1rem;
 
-  .about {
-    display: flex;
-    flex-direction: column;
-
-    &__title {
-      font-weight: 600;
-      font-size: 1.5rem;
-      line-height: 2rem;
-      padding-left: 1rem;
-    }
-
-    &__img {
-      margin: 0 1rem;
-      width: 90%;
-      height: 35vh;
-    }
-
-    &__img-subtitle {
-      font-weight: 600;
-      margin: 1rem;
-    }
-
-    &__img-suntitle-name {
-      font-weight: 600;
-      margin: 0 1rem;
-    }
-
-    &__band-name {
-      margin: 1.5rem 0 0 1rem;
-    }
-
-    &__band-history {
-      margin: 0 1rem;
-    }
+  &__img {
+    width: 100%;
+    height: 35vh;
+    object-fit: cover;
   }
 
-  .gallery {
-    background-color: $silver;
-  }
-  .gallery-title {
+  &__img-subtitle {
     font-weight: 600;
-    font-size: 1.5rem;
-    line-height: 2rem;
-    padding-left: 1rem;
+    inline-size: 19rem;
   }
 
-  .photo-gallery {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-items: center;
+  &__img-subtitle-name {
+    font-weight: 600;
+  }
+}
 
-    &__gallery-img {
-      margin: 1rem 1rem;
-      width: 90%;
-      height: 35vh;
-    }
+.photo__gallery {
+  background-color: $alabaster;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem 0 1rem;
+
+  &-title {
+    font-weight: 600;
+  }
+
+  &-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
   }
 }
 
@@ -104,53 +91,56 @@
   }
 
   // Main for Tablet
-  .main-content {
-    .about {
-      &__title {
-        font-size: 2.5rem;
-      }
+  .about__title {
+    font-size: 2.5rem;
+    margin: 3rem 0 2rem 2rem;
+  }
 
-      &__img {
-        margin: 0 5rem;
-        width: 80%;
-        height: 70vh;
-      }
+  .about {
+    padding: 0 5rem 0 5rem;
 
-      &__img-subtitle {
-        font-weight: 600;
-        font-size: 1.5rem;
-        inline-size: 39rem;
-        margin: 2rem 5rem 1rem 5rem;
-      }
+    &__img {
+      width: 100%;
+      height: 70vh;
+    }
 
-      &__img-suntitle-name {
-        font-weight: 600;
-        margin: 0 5rem;
-      }
+    &__img-subtitle {
+      font-weight: 600;
+      font-size: 1.5rem;
+      inline-size: 39rem;
+    }
 
-      &__band-name {
-        margin: 4rem 0 1rem 5rem;
-        font-size: 1.5rem;
-        font-weight: 600;
-      }
+    &__band-name {
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
 
-      &__band-history {
-        display: flex;
-        justify-content: space-around;
-        margin: 0 5rem;
-      }
+    &__band-history {
+      display: flex;
+      gap: 1.5rem;
+    }
+  }
+
+  .photo__gallery {
+    padding: 0 2rem 2rem 2rem;
+
+    &-collection {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    &-img {
+      display: inline-block;
+      width: 30%;
+      height: auto;
+      margin-bottom: 0;
     }
   }
 }
-
 // Hero img for Desktop
 @include large {
   .hero {
-    &__bio-img {
-      width: 100%;
-      height: 100vh;
-    }
-
     &__bio-txt {
       padding-left: 8rem;
       font-size: 3.5rem;
@@ -158,35 +148,27 @@
   }
 
   // Main for Desktop
-  .main-content {
-    .about {
-      &__title {
-        margin: 3rem 0;
-        padding-left: 8rem;
-      }
+  .about__title {
+    margin: 3rem 0 2rem 8rem;
+  }
+  .about {
+    padding: 0 14rem 0 14rem;
 
-      &__img {
-        margin: 0 14rem;
-        width: 65%;
-        height: 65vh;
-      }
+    &__img {
+      height: 50vh;
+    }
 
-      &__img-subtitle {
-        inline-size: 45rem;
-        margin: 2rem 14rem 1rem 14rem;
-      }
+    &__img-subtitle {
+      inline-size: 45rem;
+    }
+  }
 
-      &__img-suntitle-name {
-        margin: 0 14rem;
-      }
-
-      &__band-name {
-        margin: 4rem 0 1rem 14rem;
-      }
-
-      &__band-history {
-        margin: 0 14rem;
-      }
+  .photo__gallery {
+    &-img {
+      display: inline-block;
+      width: 30%;
+      height: auto;
+      margin-bottom: 0;
     }
   }
 }

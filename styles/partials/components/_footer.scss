@@ -1,0 +1,80 @@
+@use "../colors" as *;
+@use "../breakpoints" as *;
+
+// Footer for Mobile
+.footer {
+  background-color: $band-site-black;
+  color: $white;
+  padding: 2rem 0 0.5rem 1rem;
+
+  &__upper {
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: relative;
+  }
+
+  &__social-media-icon {
+    padding: 1rem 2rem 0 0;
+  }
+
+  &__band-logo {
+    position: absolute;
+    top: 36rem;
+  }
+
+  &__nav-bar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__menu {
+    padding: 0 5rem 0 0;
+    list-style-type: none;
+  }
+
+  &__contact {
+    padding-bottom: 1rem;
+  }
+
+  &__email {
+    color: $white;
+    text-decoration: none;
+  }
+
+  &__bottom {
+    padding-top: 6rem;
+    font-size: 0.7rem;
+  }
+}
+
+// Footer for Tablet
+@include medium {
+  .footer {
+    &__upper {
+      display: flex;
+      font-size: 3rem;
+      padding: 1rem;
+      position: relative;
+    }
+
+    &__title-text {
+      padding-right: 2rem;
+    }
+
+    &__social-media-icon {
+      padding-right: 0.5rem;
+    }
+
+    &__band-logo {
+      position: absolute;
+      bottom: 27rem;
+      left: 38rem;
+    }
+
+    &__menu {
+      display: flex;
+      gap: 3rem;
+      padding-left: 1rem;
+    }
+  }
+}
