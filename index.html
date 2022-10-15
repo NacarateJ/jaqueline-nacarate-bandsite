@@ -27,17 +27,16 @@
 
     <!--- Hero Img --->
     <div class="hero">
-      <div class="hero__bio-img">
-        <h1 class="hero__bio-txt">The Bees Knees</h1>
-      </div>
+      <h1 class="hero__bio-txt">The Bees Knees</h1>
+      <div class="hero__bio-img"></div>
     </div>
 
     <!--- Main --->
     <main class="main-content">
       <!--- About Section --->
-      <div class="about">
-        <h1 class="about__title">About the Musicians</h1>
-
+      <h1 class="about__title">About the Musicians</h1>
+      
+      <section class="about">
         <div>
           <img
             class="about__img"
@@ -51,13 +50,12 @@
             "We push each other to be the best. It’s not uncommon for one of us
             to say ‘this needs to be better, back to the drawing board’”
           </p>
-          <p class="about__img-suntitle-name">
+          <p class="about__img-subtitle-name">
             - Bryan Teddy, lead vocalist of The Bees Knees
           </p>
         </div>
 
-        <div>
-          <p class="about__band-name">The Bees Knees</p>
+        <div class="about__band-name">The Bees Knees</p>
         </div>
 
         <div class="about__band-history">
@@ -85,10 +83,10 @@
             looking to be released in late 2021.
           </p>
         </div>
-      </div>
+      </section>
 
       <!--- Photo Gallery --->
-      <div class="photo__gallery">
+      <section class="photo__gallery">
         <div>
           <h1 class="photo__gallery-title">Photo Gallery</h1>
         </div>
@@ -139,15 +137,16 @@
             alt="Photo gallery 9"
           />
         </div>
-      </div>
+      </section>
     </main>
 
     <!--- Footer --->
     <footer class="footer">
       <!--- Footer Upper --->
       <div class="footer__upper">
-        <div class="footer__titlet">Get in Touch</div>
-        <div>
+       <div class="footer__title-text">Get in Touch</div>
+
+        <div class="footer__social-media">
           <a href="http://www.instagram.com" target="_blank"
             ><img
               class="footer__social-media-icon"
@@ -167,45 +166,51 @@
               alt="twitter"
           /></a>
         </div>
+
+         <div class="footer__band-logo">
+          <img src="./assets/Logo/Logo-bandsite.svg"
+          alt="band site logo"
+        />
+      </div>
       </div>
 
       <!--- Footer Members Contact --->
-      <nav class="footer__navigation">
+      <nav class="footer__nav-bar">
         <ul class="footer__menu">
-          <li class="footer__menu-name">Cam Adams</li>
-          <span class="footer__menu-name-role">The Bees Knees Management</span>
-          <div class="footer__menu-name-info">
+          <div class="footer__contact">
+          <li class="footer__name">Cam Adams</li>
+          <div class="footer__role">The Bees Knees Management</div>
+          <div class="footer__info">
             <p>503 Broadway Penthouse, New York, NY 10012, USA</p>
           </div>
-          <a
-            class="footer__menu-name-email"
-            href="mailto:info@thebeesknees.com"
-          ></a>
+          <a class="footer__email"
+            href="#">info@thebeesknees.com</a>
+            </div>
 
-          <li class="footer__menu-name">Pearl Gregg</li>
-          <span class="footer__menu-name-role">Limitless Artist Group</span>
-          <div class="footer__menu-name-info">
+          <div class="contact">
+            <li class="footer__name">Pearl Gregg</li>
+          <div class="footer__role">Limitless Artist Group</div>
+          <div class="footer__info">
             <p>Booking Agent for US / South America / Japan</p>
           </div>
-          <a
-            class="footer__menu-name-email"
-            href="mailto:pearl.gregg@limitlessag.com"
-          ></a>
+          <a class="footer__email"
+            href="#">pearl.gregg@limitlessag.com</a>
+            </div>
 
-          <li class="footer__menu-name">Carson Whyte</li>
-          <span class="footer__menu-name-role">ARCH Entertainment</span>
-          <div class="footer__menu-name-info">
+          <div class="contact">
+          <li class="footer__name">Carson Whyte</li>
+          <div class="footer__role">ARCH Entertainment</div>
+          <div class="footer__info">
             <p>Booking Agent for UK / EU / AU</p>
           </div>
-          <a
-            class="footer__menu-name-email"
-            href="cwhyte@archentertainment.com"
-          ></a>
+          <a class="footer__email"
+            href="#">cwhyte@archentertainment.com</a>
+            </div>
         </ul>
       </nav>
 
-      <!--- Footer Base --->
-      <p>Copyright The Bees Knees © 2021 All Rights Reserved</p>
+      <!--- Footer Bottom --->
+      <p class="footer__bottom">Copyright The Bees Knees © 2021 All Rights Reserved</p>
     </footer>
   </body>
 </html>
