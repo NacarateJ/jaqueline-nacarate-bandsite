@@ -1,0 +1,82 @@
+@use "../colors" as *;
+@use "../breakpoints" as *;
+
+/* styles for header for mobile */
+.header {
+  background-color: $band-site-black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__band-logo {
+    padding: 1.5rem 0 0.5rem 0;
+  }
+
+  &__navigation {
+    width: 100%;
+  }
+
+  &__menu {
+    display: flex;
+
+    &-item {
+      color: $silver;
+      width: 50%;
+      text-align: center;
+    }
+  }
+
+  .active {
+    color: $white;
+    border-bottom: 4px solid $white;
+    padding-bottom: 1rem;
+  }
+}
+
+/* styles for header on tablet device */
+@include medium {
+  .header {
+    flex-direction: row;
+    height: 15vh;
+
+    &__band-logo {
+      padding: 0 0 0 2rem;
+    }
+
+    &__navigation {
+      width: 30%;
+    }
+
+    &__menu {
+      padding-top: 1.7rem;
+      padding-left: 4rem;
+
+      &-item {
+        text-align: left;
+        margin-right: 5rem;
+      }
+    }
+
+    .active {
+      padding-bottom: 1.8rem;
+    }
+  }
+}
+
+/* header styling for Desktop */
+@include large {
+  .header {
+    height: 12vh;
+
+    &__band-logo {
+      padding-left: 8rem;
+    }
+
+    &__navigation {
+      width: 30%;
+    }
+    .active {
+      padding-bottom: 2.1rem;
+    }
+  }
+}
