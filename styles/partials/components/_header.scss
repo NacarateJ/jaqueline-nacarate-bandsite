@@ -8,102 +8,75 @@
   align-items: center;
   flex-direction: column;
 
-  &__band-name {
-    font-weight: 500;
-    font-size: 1.5rem;
-    line-height: 2rem;
-    color: $white;
-    text-align: center;
-    padding: 1rem 0 0.5rem 0;
+  &__band-logo {
+    padding: 1.5rem 0 0.5rem 0;
   }
 
   &__navigation {
-    width: 60%;
+    width: 100%;
   }
 
   &__menu {
     display: flex;
-    justify-content: space-between;
-    list-style-type: none;
-    padding-left: 0;
-    padding-bottom: 1rem;
-    margin: 0;
 
     &-item {
-      &-link {
-        text-decoration: none;
-        color: $white;
-      }
+      color: $silver;
+      width: 50%;
+      text-align: center;
     }
   }
 
   .active {
-    border-bottom: 1px solid white;
+    color: $white;
+    border-bottom: 4px solid $white;
+    padding-bottom: 1rem;
   }
 }
-
-// &__menu-item-link {
-//   border-bottom: 1rem solid $white;
-//   text-decoration: none;
-//   color: inherit;
-// }
 
 /* styles for header on tablet device */
 @include medium {
   .header {
     flex-direction: row;
-    width: 100vw;
-    text-align: left;
     height: 15vh;
 
-    &__band-name {
-      font-weight: 500;
-      font-size: 1rem;
-      line-height: 2rem;
+    &__band-logo {
       padding: 0 0 0 2rem;
     }
 
-    &__menu {
-      justify-content: left;
-      padding: 0;
+    &__navigation {
+      width: 30%;
     }
 
-    &__menu-item {
-      padding-left: 3rem;
-      color: $silver;
-      &:active {
-        color: $white;
+    &__menu {
+      padding-top: 1.7rem;
+      padding-left: 4rem;
+
+      &-item {
+        text-align: left;
+        margin-right: 5rem;
       }
     }
 
-    &__menu-item-link {
-      text-decoration: none;
-      color: inherit;
+    .active {
+      padding-bottom: 1.8rem;
     }
   }
 }
 
-/* header styling for medium pixel density devices and tablet landscape */
+/* header styling for Desktop */
 @include large {
   .header {
-    flex-direction: row;
-    width: 100vw;
-    text-align: left;
     height: 12vh;
 
-    &__band-name {
-      font-weight: 500;
-      font-size: 1.5rem;
-      line-height: 2rem;
-      padding: 0 0 0 8rem;
+    &__band-logo {
+      padding-left: 8rem;
     }
-    &__menu-item {
-      padding-left: 3rem;
-      font-size: 1rem;
-      color: $silver;
-      &:active {
-        color: $white;
-      }
+
+    &__navigation {
+      width: 30%;
+    }
+    .active {
+      padding-bottom: 2.1rem;
     }
   }
 }

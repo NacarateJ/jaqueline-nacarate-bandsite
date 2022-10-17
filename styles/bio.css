@@ -30,7 +30,6 @@
 /* media query for mobile */
 /* media query for tablet min-width */
 /* media query for desktop */
-/*grayscale effect for photo gallery*/
 /* styles for header for mobile */
 .header {
   background-color: #323232;
@@ -38,84 +37,63 @@
   align-items: center;
   flex-direction: column;
 }
-.header__band-name {
-  font-weight: 500;
-  font-size: 1.5rem;
-  line-height: 2rem;
-  color: #ffffff;
-  text-align: center;
-  padding: 1rem 0 0.5rem 0;
+.header__band-logo {
+  padding: 1.5rem 0 0.5rem 0;
 }
 .header__navigation {
-  width: 60%;
+  width: 100%;
 }
 .header__menu {
   display: flex;
-  justify-content: space-between;
-  list-style-type: none;
-  padding-left: 0;
-  padding-bottom: 1rem;
-  margin: 0;
 }
-.header__menu-item-link {
-  text-decoration: none;
-  color: #ffffff;
+.header__menu-item {
+  color: #afafaf;
+  width: 50%;
+  text-align: center;
 }
 .header .active {
-  border-bottom: 1px solid white;
+  color: #ffffff;
+  border-bottom: 4px solid #ffffff;
+  padding-bottom: 1rem;
 }
 
 /* styles for header on tablet device */
 @media only screen and (min-width: 768px) {
   .header {
     flex-direction: row;
-    width: 100vw;
-    text-align: left;
     height: 15vh;
   }
-  .header__band-name {
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: 2rem;
+  .header__band-logo {
     padding: 0 0 0 2rem;
   }
+  .header__navigation {
+    width: 30%;
+  }
   .header__menu {
-    justify-content: left;
-    padding: 0;
+    padding-top: 1.7rem;
+    padding-left: 4rem;
   }
   .header__menu-item {
-    padding-left: 3rem;
-    color: #afafaf;
+    text-align: left;
+    margin-right: 5rem;
   }
-  .header__menu-item:active {
-    color: #ffffff;
-  }
-  .header__menu-item-link {
-    text-decoration: none;
-    color: inherit;
+  .header .active {
+    padding-bottom: 1.8rem;
   }
 }
-/* header styling for medium pixel density devices and tablet landscape */
+/* header styling for Desktop */
 @media only screen and (min-width: 1280px) {
   .header {
-    flex-direction: row;
-    width: 100vw;
-    text-align: left;
     height: 12vh;
   }
-  .header__band-name {
-    font-weight: 500;
-    font-size: 1.5rem;
-    line-height: 2rem;
-    padding: 0 0 0 8rem;
+  .header__band-logo {
+    padding-left: 8rem;
   }
-  .header__menu-item {
-    padding-left: 3rem;
-    font-size: 1rem;
-    color: #afafaf;
+  .header__navigation {
+    width: 30%;
   }
-  .header__menu-item:active {
-    color: #ffffff;
+  .header .active {
+    padding-bottom: 2.1rem;
   }
 }
 .hero {
@@ -182,12 +160,17 @@
   padding: 0 1rem 0 1rem;
 }
 .photo__gallery-title {
+  font-size: 2rem;
   font-weight: 600;
 }
 .photo__gallery-img {
+  filter: grayscale(100%);
   width: 100%;
   height: auto;
   margin-bottom: 1rem;
+}
+.photo__gallery-img:hover {
+  filter: grayscale(0);
 }
 
 @media only screen and (min-width: 768px) {
@@ -214,10 +197,14 @@
     font-size: 1.5rem;
     inline-size: 39rem;
   }
+  .about__img-subtitle-name {
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 0;
+  }
   .about__band-name {
-    font-weight: 600;
-    font-size: 1.5rem;
-    padding-top: 3rem;
+    font-size: 2rem;
+    padding-top: 4rem;
   }
   .about__band-history {
     display: flex;
@@ -252,10 +239,20 @@
     padding: 0 14rem 0 14rem;
   }
   .about__img {
-    height: 50vh;
+    height: 60vh;
   }
   .about__img-subtitle {
     inline-size: 45rem;
+  }
+  .about__band-history {
+    padding-bottom: 1.5rem;
+  }
+  .photo__gallery {
+    padding: 0 6rem 2.5rem 6rem;
+  }
+  .photo__gallery-title {
+    font-size: 3rem;
+    padding-left: 1.5rem;
   }
   .photo__gallery-img {
     display: inline-block;
@@ -268,35 +265,48 @@
   background-color: #323232;
   color: #ffffff;
   padding: 2rem 0 0.5rem 1rem;
+  font-size: 0.875rem;
 }
 .footer__upper {
   font-size: 1.5rem;
   font-weight: 600;
   position: relative;
+  padding-bottom: 1rem;
 }
 .footer__social-media-icon {
-  padding: 1rem 2rem 0 0;
-  width: 4rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
   height: 2.5rem;
 }
 .footer__band-logo {
   position: absolute;
-  top: 38rem;
+  top: 42.5rem;
 }
 .footer__nav-bar {
   display: flex;
   flex-direction: column;
 }
-.footer__menu {
+.footer__contact {
   padding: 0 5rem 0 0;
   list-style-type: none;
 }
-.footer__contact {
-  padding-bottom: 1rem;
+.footer__name {
+  font-weight: 600;
+}
+.footer__role {
+  font-weight: 600;
+  padding-bottom: 1.5rem;
+}
+.footer__info {
+  line-height: 1.5;
 }
 .footer__email {
-  color: #ffffff;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.footer .email-link {
   text-decoration: none;
+  color: #ffffff;
 }
 .footer__bottom {
   padding-top: 6rem;
@@ -306,29 +316,39 @@
 @media only screen and (min-width: 768px) {
   .footer__upper {
     display: flex;
-    font-size: 3rem;
+    font-size: 2.5rem;
     padding: 1rem;
-    position: relative;
   }
   .footer__title-text {
     padding-right: 2rem;
   }
-  .footer__social-media-icon {
-    padding-right: 0.5rem;
-  }
   .footer__band-logo {
-    position: absolute;
-    left: 38rem;
+    top: 1rem;
+    left: 37.5rem;
   }
-  .footer__menu {
-    display: flex;
+  .footer__contact {
+    padding-right: 0;
+  }
+  .footer__nav-bar {
+    flex-direction: row;
+    padding-inline: 1rem 2rem;
     gap: 3rem;
-    padding-left: 1rem;
+  }
+  .footer__bottom {
+    font-size: 1rem;
+    padding: 1rem 0 1rem 1rem;
   }
 }
 @media only screen and (min-width: 1280px) {
   .footer {
-    padding-left: 2rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+  .footer__band-logo {
+    left: 58.5rem;
+  }
+  .footer__nav-bar {
+    gap: 4rem;
   }
 }
 html,
@@ -343,4 +363,15 @@ body {
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }/*# sourceMappingURL=bio.css.map */
