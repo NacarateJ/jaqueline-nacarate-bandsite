@@ -23,10 +23,3 @@ $value: 100%;
     @content;
   }
 }
-
-/*grayscale effect for photo gallery*/
-// @mixin grayscale_effect($value) {
-//   -webkit-filter: grayscale($value);
-//   -moz-filter: grayscale($value);
-//   filter: grayscale($value);
-// }
