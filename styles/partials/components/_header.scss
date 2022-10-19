@@ -23,13 +23,13 @@
       color: $silver;
       width: 50%;
       text-align: center;
+      border-bottom: 4px solid transparent;
+      &--active {
+        color: $white;
+        border-bottom: 4px solid $white;
+        padding-bottom: 1rem;
+      }
     }
-  }
-
-  .active {
-    color: $white;
-    border-bottom: 4px solid $white;
-    padding-bottom: 1rem;
   }
 }
 
@@ -54,11 +54,10 @@
       &-item {
         text-align: left;
         margin-right: 5rem;
+        &--active {
+          padding-bottom: 0.7rem;
+        }
       }
-    }
-
-    .active {
-      padding-bottom: 1.8rem;
     }
   }
 }
@@ -72,11 +71,13 @@
       padding-left: 8rem;
     }
 
-    &__navigation {
-      width: 30%;
-    }
-    .active {
-      padding-bottom: 2.1rem;
+    &__menu {
+      &-item {
+        width: 25%;
+        &--active {
+          padding-bottom: 2rem;
+        }
+      }
     }
   }
 }
