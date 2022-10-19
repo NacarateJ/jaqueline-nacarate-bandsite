@@ -50,8 +50,9 @@
   color: #afafaf;
   width: 50%;
   text-align: center;
+  border-bottom: 4px solid transparent;
 }
-.header .active {
+.header__menu-item--active {
   color: #ffffff;
   border-bottom: 4px solid #ffffff;
   padding-bottom: 1rem;
@@ -77,8 +78,8 @@
     text-align: left;
     margin-right: 5rem;
   }
-  .header .active {
-    padding-bottom: 1.8rem;
+  .header__menu-item--active {
+    padding-bottom: 0.7rem;
   }
 }
 /* header styling for Desktop */
@@ -89,11 +90,11 @@
   .header__band-logo {
     padding-left: 8rem;
   }
-  .header__navigation {
-    width: 30%;
+  .header__menu-item {
+    width: 25%;
   }
-  .header .active {
-    padding-bottom: 2.1rem;
+  .header__menu-item--active {
+    padding-bottom: 2rem;
   }
 }
 .hero {
@@ -103,7 +104,7 @@
   flex-direction: column;
   justify-content: center;
 }
-.hero__bio-txt {
+.hero__txt {
   z-index: 9999;
   color: #ffffff;
   font-weight: 600;
@@ -112,7 +113,7 @@
   padding-left: 2rem;
   position: absolute;
 }
-.hero__bio-img {
+.hero__img {
   background-image: url(../assets/Images/hero-bio.jpg);
   background-position: center;
   background-size: cover;
@@ -141,11 +142,11 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
-.about__img-subtitle {
+.about__quote {
   font-weight: 600;
   inline-size: 19rem;
 }
-.about__img-subtitle-name {
+.about__quote-name {
   font-weight: 600;
 }
 .about__band-name {
@@ -153,32 +154,32 @@
   font-weight: 600;
 }
 
-.photo__gallery {
+.gallery {
   background-color: #fafafa;
   display: flex;
   flex-direction: column;
   padding: 0 1rem 0 1rem;
 }
-.photo__gallery-title {
+.gallery__title {
   font-size: 2rem;
   font-weight: 600;
 }
-.photo__gallery-img {
+.gallery__img {
   filter: grayscale(100%);
   width: 100%;
   height: auto;
   margin-bottom: 1rem;
 }
-.photo__gallery-img:hover {
+.gallery__img:hover {
   filter: grayscale(0);
 }
 
 @media only screen and (min-width: 768px) {
-  .hero__bio-img {
+  .hero__img {
     width: 100%;
     height: 85vh;
   }
-  .hero__bio-txt {
+  .hero__txt {
     font-size: 3.8rem;
   }
   .about__title {
@@ -192,12 +193,12 @@
     width: 100%;
     height: 70vh;
   }
-  .about__img-subtitle {
+  .about__quote {
     font-weight: 600;
     font-size: 1.5rem;
     inline-size: 39rem;
   }
-  .about__img-subtitle-name {
+  .about__quote-name {
     font-weight: 500;
     font-size: 1.1rem;
     line-height: 0;
@@ -211,16 +212,16 @@
     gap: 1.5rem;
     padding-bottom: 1rem;
   }
-  .photo__gallery {
+  .gallery {
     padding: 0 2rem 2rem 2rem;
   }
-  .photo__gallery-collection {
+  .gallery__collection {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 2rem;
   }
-  .photo__gallery-img {
+  .gallery__img {
     display: inline-block;
     width: 30%;
     height: auto;
@@ -228,7 +229,7 @@
   }
 }
 @media only screen and (min-width: 1280px) {
-  .hero__bio-txt {
+  .hero__txt {
     padding-left: 8rem;
     font-size: 3.5rem;
   }
@@ -241,20 +242,20 @@
   .about__img {
     height: 60vh;
   }
-  .about__img-subtitle {
+  .about__quote {
     inline-size: 45rem;
   }
   .about__band-history {
     padding-bottom: 1.5rem;
   }
-  .photo__gallery {
+  .gallery {
     padding: 0 6rem 2.5rem 6rem;
   }
-  .photo__gallery-title {
+  .gallery__title {
     font-size: 3rem;
     padding-left: 1.5rem;
   }
-  .photo__gallery-img {
+  .gallery__img {
     display: inline-block;
     width: 30%;
     height: auto;
@@ -273,7 +274,7 @@
   position: relative;
   padding-bottom: 1rem;
 }
-.footer__social-media-icon {
+.footer__icon {
   padding-right: 1rem;
   padding-top: 1rem;
   height: 2.5rem;
@@ -319,7 +320,7 @@
     font-size: 2.5rem;
     padding: 1rem;
   }
-  .footer__title-text {
+  .footer__title {
     padding-right: 2rem;
   }
   .footer__band-logo {
