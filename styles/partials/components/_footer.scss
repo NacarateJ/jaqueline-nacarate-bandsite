@@ -1,0 +1,116 @@
+@use "../colors" as *;
+@use "../breakpoints" as *;
+
+// Footer for Mobile
+.footer {
+  background-color: $band-site-black;
+  color: $white;
+  padding: 2rem 0 0.5rem 1rem;
+  font-size: 0.875rem;
+
+  &__upper {
+    font-size: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+
+  &__icon {
+    padding-right: 1rem;
+    padding-top: 1rem;
+    height: 2.5rem;
+  }
+
+  &__band-logo {
+    position: absolute;
+    top: 40.5rem;
+  }
+
+  &__nav-bar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__contact {
+    padding: 0 5rem 0 0;
+    list-style-type: none;
+  }
+
+  &__name {
+    font-weight: 600;
+  }
+
+  &__role {
+    font-weight: 600;
+    padding-bottom: 1.5rem;
+  }
+
+  &__info {
+    line-height: 1.5;
+  }
+
+  &__email {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .email-link {
+    text-decoration: none;
+    color: $white;
+  }
+
+  &__bottom {
+    padding-top: 6rem;
+    font-size: 0.7rem;
+  }
+}
+
+// Footer for Tablet
+@include medium {
+  .footer {
+    &__upper {
+      display: flex;
+      font-size: 2.5rem;
+      padding: 1rem;
+    }
+
+    &__title {
+      padding-right: 2rem;
+    }
+
+    &__band-logo {
+      top: 1rem;
+      left: 37.5rem;
+    }
+    &__contact {
+      padding-right: 0;
+    }
+
+    &__nav-bar {
+      flex-direction: row;
+      padding-inline: 1rem 2rem;
+      gap: 3rem;
+    }
+
+    &__bottom {
+      font-size: 1rem;
+      padding: 1rem 0 1rem 1rem;
+    }
+  }
+}
+
+// Footer for Desktop
+@include large {
+  .footer {
+    padding-left: 7rem;
+    padding-right: 7rem;
+
+    &__band-logo {
+      left: 58.5rem;
+    }
+
+    &__nav-bar {
+      gap: 4rem;
+    }
+  }
+}

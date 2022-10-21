@@ -1,0 +1,294 @@
+/* Regular */
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/Font/alternative-files/avenir-next-lt-pro-regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+/* Demi */
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/Font/alternative-files/avenir-next-lt-pro-demi.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+/* Bold */
+@font-face {
+  font-family: "Avenir Next";
+  src: url("../../assets/Font/alternative-files/avenir-next-lt-pro-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+/* primary colors */
+/* Primary text color for dark on light background. Dark background color*/
+/*Seconday text color. Inactive CTA text color.*/
+/*Primary text color for light on dark background. Light background color. Active CTA text color.*/
+/* secondary colors */
+/*CTA hover state.*/
+/*Divider line. Form field outline.*/
+/*Alternative light background color*/
+/* media query for mobile */
+/* media query for tablet min-width */
+/* media query for desktop */
+/* styles for header for mobile */
+.header {
+  background-color: #323232;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.header__band-logo {
+  padding: 1.5rem 0 0.5rem 0;
+}
+.header__navigation {
+  width: 100%;
+  height: auto;
+}
+.header__menu {
+  display: flex;
+}
+.header__menu-item {
+  height: 100%;
+  color: #afafaf;
+  width: 50%;
+  text-align: center;
+  border-bottom: 4px solid transparent;
+}
+.header__menu-item--active {
+  color: #ffffff;
+  border-bottom: 4px solid #ffffff;
+  padding-bottom: 1rem;
+}
+
+/* styles for header on tablet device */
+@media only screen and (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    height: 15vh;
+  }
+  .header__band-logo {
+    padding: 0 0 0 2rem;
+  }
+  .header__navigation {
+    width: 30%;
+  }
+  .header__menu {
+    padding-top: 1.7rem;
+    padding-left: 4rem;
+  }
+  .header__menu-item {
+    text-align: left;
+    margin-right: 5rem;
+  }
+  .header__menu-item--active {
+    padding-bottom: 0.7rem;
+  }
+}
+/* header styling for Desktop */
+@media only screen and (min-width: 1280px) {
+  .header {
+    height: 5.5vh;
+  }
+  .header__band-logo {
+    padding-left: 8rem;
+  }
+}
+.hero {
+  position: relative;
+  background-color: #323232;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero__album {
+  z-index: 9999;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 2rem;
+  padding-left: 2rem;
+  position: absolute;
+  bottom: 15rem;
+}
+.hero__txt {
+  z-index: 9999;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  inline-size: 17rem;
+  padding-left: 2rem;
+  position: absolute;
+  bottom: 10rem;
+}
+.hero__song {
+  z-index: 9999;
+  padding-left: 2rem;
+  position: absolute;
+  top: 11rem;
+  width: 90%;
+  height: 15vh;
+  border-radius: 0.3rem;
+}
+.hero__img {
+  background-image: url(../../../assets/Images/hero-shows.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+  opacity: 50%;
+}
+
+@media only screen and (min-width: 768px) {
+  .hero__album {
+    font-weight: 600;
+    font-size: 2rem;
+    bottom: 8rem;
+  }
+  .hero__txt {
+    top: 5rem;
+    line-height: 4rem;
+    inline-size: 40rem;
+    font-size: 3.8rem;
+  }
+  .hero__song {
+    top: 18rem;
+    width: 60%;
+    height: 20vh;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .hero__album {
+    bottom: 20rem;
+    padding-left: 8rem;
+  }
+  .hero__txt {
+    top: 14rem;
+    padding-left: 8rem;
+    font-size: 3.5rem;
+    inline-size: 35rem;
+  }
+  .hero__song {
+    top: 17rem;
+    width: 40%;
+    height: 20vh;
+    margin-left: 40rem;
+  }
+}
+.footer {
+  background-color: #323232;
+  color: #ffffff;
+  padding: 2rem 0 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+.footer__upper {
+  font-size: 1.5rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 1rem;
+}
+.footer__icon {
+  padding-right: 1rem;
+  padding-top: 1rem;
+  height: 2.5rem;
+}
+.footer__band-logo {
+  position: absolute;
+  top: 40.5rem;
+}
+.footer__nav-bar {
+  display: flex;
+  flex-direction: column;
+}
+.footer__contact {
+  padding: 0 5rem 0 0;
+  list-style-type: none;
+}
+.footer__name {
+  font-weight: 600;
+}
+.footer__role {
+  font-weight: 600;
+  padding-bottom: 1.5rem;
+}
+.footer__info {
+  line-height: 1.5;
+}
+.footer__email {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.footer .email-link {
+  text-decoration: none;
+  color: #ffffff;
+}
+.footer__bottom {
+  padding-top: 6rem;
+  font-size: 0.7rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .footer__upper {
+    display: flex;
+    font-size: 2.5rem;
+    padding: 1rem;
+  }
+  .footer__title {
+    padding-right: 2rem;
+  }
+  .footer__band-logo {
+    top: 1rem;
+    left: 37.5rem;
+  }
+  .footer__contact {
+    padding-right: 0;
+  }
+  .footer__nav-bar {
+    flex-direction: row;
+    padding-inline: 1rem 2rem;
+    gap: 3rem;
+  }
+  .footer__bottom {
+    font-size: 1rem;
+    padding: 1rem 0 1rem 1rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .footer {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+  .footer__band-logo {
+    left: 58.5rem;
+  }
+  .footer__nav-bar {
+    gap: 4rem;
+  }
+}
+html,
+body {
+  margin: 0;
+  font-family: "Avenir Next";
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}/*# sourceMappingURL=shows.css.map */

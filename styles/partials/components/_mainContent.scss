@@ -1,0 +1,202 @@
+@use "../colors" as *;
+@use "../breakpoints" as *;
+
+// Hero img for Mobile
+
+.hero {
+  position: relative;
+  background-color: $band-site-black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__txt {
+    z-index: 9999;
+    color: $white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding-left: 2rem;
+    position: absolute;
+  }
+
+  &__img {
+    background-image: url(../assets/Images/hero-bio.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    height: 40vh;
+    opacity: 50%;
+  }
+}
+
+// Main for Mobile
+.about__title {
+  padding: 0 1rem 0 1rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.about {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem 0 1rem;
+
+  &__img {
+    width: 100%;
+    height: 35vh;
+    object-fit: cover;
+  }
+
+  &__quote {
+    font-weight: 600;
+    inline-size: 19rem;
+
+    &-name {
+      font-weight: 600;
+    }
+  }
+
+  &__band-name {
+    padding-top: 1rem;
+    font-weight: 600;
+  }
+}
+
+.gallery {
+  background-color: $alabaster;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem 0 1rem;
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  &__img {
+    filter: grayscale(100%);
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    &:hover {
+      filter: grayscale(0);
+    }
+  }
+}
+
+// Hero img for Tablet
+@include medium {
+  .hero {
+    &__img {
+      width: 100%;
+      height: 85vh;
+    }
+
+    &__txt {
+      font-size: 3.8rem;
+    }
+  }
+
+  // Main for Tablet
+  .about__title {
+    font-size: 2.5rem;
+    margin: 3rem 0 2rem 2rem;
+  }
+
+  .about {
+    padding: 0 5rem 0 5rem;
+
+    &__img {
+      width: 100%;
+      height: 70vh;
+    }
+
+    &__quote {
+      font-weight: 600;
+      font-size: 1.5rem;
+      inline-size: 39rem;
+
+      &-name {
+        font-weight: 500;
+        font-size: 1.1rem;
+        line-height: 0;
+      }
+    }
+
+    &__band-name {
+      font-size: 2rem;
+      padding-top: 4rem;
+    }
+
+    &__band-history {
+      display: flex;
+      gap: 1.5rem;
+      padding-bottom: 1rem;
+    }
+  }
+
+  .gallery {
+    padding: 0 2rem 2rem 2rem;
+
+    &__collection {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    &__img {
+      display: inline-block;
+      width: 30%;
+      height: auto;
+      margin-bottom: 0;
+    }
+  }
+}
+// Hero img for Desktop
+@include large {
+  .hero {
+    &__txt {
+      padding-left: 8rem;
+      font-size: 3.5rem;
+    }
+  }
+
+  // Main for Desktop
+  .about__title {
+    margin: 3rem 0 2rem 8rem;
+  }
+  .about {
+    padding: 0 14rem 0 14rem;
+
+    &__img {
+      height: 60vh;
+    }
+
+    &__quote {
+      inline-size: 45rem;
+    }
+
+    &__band-history {
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  .gallery {
+    padding: 0 6rem 2.5rem 6rem;
+
+    &__title {
+      font-size: 3rem;
+      padding-left: 1.5rem;
+    }
+
+    &__img {
+      display: inline-block;
+      width: 30%;
+      height: auto;
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,114 @@
+@use "../colors" as *;
+@use "../breakpoints" as *;
+
+// Hero img for Mobile
+
+.hero {
+  position: relative;
+  background-color: $band-site-black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__album {
+    z-index: 9999;
+    color: $white;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 2rem;
+    padding-left: 2rem;
+    position: absolute;
+    bottom: 15rem;
+  }
+  &__txt {
+    z-index: 9999;
+    color: $white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    inline-size: 17rem;
+    padding-left: 2rem;
+    position: absolute;
+    bottom: 10rem;
+  }
+
+  &__song {
+    z-index: 9999;
+    padding-left: 2rem;
+    position: absolute;
+    top: 11rem;
+    width: 90%;
+    height: 15vh;
+    border-radius: 0.3rem;
+  }
+
+  &__img {
+    background-image: url(../../../assets/Images/hero-shows.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    height: 50vh;
+    width: 100%;
+    opacity: 50%;
+  }
+}
+
+// Hero img for Tablet
+@include medium {
+  .hero {
+    &__album {
+      font-weight: 600;
+      font-size: 2rem;
+      bottom: 8rem;
+    }
+
+    &__txt {
+      top: 5rem;
+      line-height: 4rem;
+      inline-size: 40rem;
+      font-size: 3.8rem;
+    }
+
+    // &__img {
+    //   width: 100%;
+    //   height: 60vh;
+    // }
+
+    &__song {
+      top: 18rem;
+      width: 60%;
+      height: 20vh;
+    }
+  }
+}
+
+// Hero img for Desktop
+@include large {
+  .hero {
+    &__album {
+      bottom: 20rem;
+      padding-left: 8rem;
+    }
+
+    &__txt {
+      top: 14rem;
+      padding-left: 8rem;
+      font-size: 3.5rem;
+      inline-size: 35rem;
+    }
+
+    // &__img {
+    //   width: 100%;
+    //   height: 140vh;
+    // }
+
+    &__song {
+      top: 17rem;
+      width: 40%;
+      height: 20vh;
+      margin-left: 40rem;
+    }
+  }
+}
