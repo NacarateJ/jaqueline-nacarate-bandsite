@@ -143,47 +143,69 @@
       </section>
     </main>
 
-
-    <!-- Comments Section --> 
-    <!-- Main container for all the comments section -->
-    <section class="comments"> 
-
-      <legend></legend>
+    <section class="comments">
+      <!-- Comments Section
 
         <h2 class="comments__title">Join the Conversation</h2>
 
-        <!-- Container for form -->
-  <form class="forms">
+  <form class="comments__form">
 
-<!-- Container for avatar -->
-  <img class="forms__avatar"src="#" alt="#"></img> 
 
-  <!-- Name Label -->
-  <div>
-  <label for="name">NAME</label>
-     <input id="name" type="text" name="name" placeholder="Enter your name">
+<div class="comments__avatar">
+  <img class="comments__img"src="#" alt="#"></img> 
+</div>
+
+  <div class="comments__name-box">
+  <label class= "comments__label-name" for="name">NAME</label>
+     <input class= "comments__box" id="name" type="text" name="name" placeholder="Enter your name">
+     </div>
      
-     
-     <!-- Comment Label -->
-     <label for="comment" class="forms__comment">COMMENT</label>
+
+     <div class="comments__comment">
+     <label class="comments__label-comment" for="comment" class="forms__comment">COMMENT</label>
         <textarea id="comment" type="text" name="comment" rows="5"
         cols="30" placeholder="Add a new comment"></textarea>
         </div>
 
-        <!-- Comment Button -->
-          <div>
-
-            <input type="button" value="COMMENT" onclick="addComment">
-      <button type="submit" class="comment__button">COMMENT</button>
+        
+          <div class="comments__button">
+      <button class ="comments__button-submit" type="submit" class="comment__button">COMMENT</button>
     </div>
 
-    </form> 
+ </form>
 
+    <div class="comments__container">
+    <div class="coments__fans">
+      <p class="comments__name">Connor Walton</p>
+      <p class="comments__date">02/17/2021</p>
+      <p class="comments__txt">This is art. This is inexplicable magic
+      expressed in the purest way, everything
+      that makes up this majestic work
+      deserves reverence. Let us appreciate
+      this for what it is and what it contains.</p>
+    </div>
+    <div class="coments__fans>
+      <p class="comments__name">Emilie Beach</p>
+      <p class="comments__date">01/09/2021</p>
+      <p class="comments__tx">I feel blessed to have seen them in
+      person. What a show! They were just
+      perfection. If there was one day of my
+      life I could relive, this would be it. What
+      an incredible day.</p>
+    </div>
+    <div class="coments__fans>
+      <p class="comments__name">Miles Acosta</p>
+      <p class="comments__date">12/20/2020</p>
+      <p class="comments__txt">I can't stop listening. Every time I hear
+      one of their songs - the vocals - it gives
+      me goosebumps. Shivers straight down
+      my spine. What a beautiful expression of
+      creativity. Can't get enough.</p>
+    </div>
+  </div>
+   -->
+    </section>
 
-   
-
-
-        </section>
     <!--- Footer --->
     <footer class="footer">
       <!--- Footer Upper --->
