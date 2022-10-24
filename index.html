@@ -144,53 +144,57 @@
     </main>
 
     <section class="comments">
+      
       <h2 class="comments__title">Join the Conversation</h2>
 
-      <form autocomplete="off" class="comments__form">
-        <div class="comments__avatar">
-          <img class="comments__img" src="#" alt="avatar Mohan Muruge" />
-        </div>
-        <div class="comments__name-box">
-          <label class="comments__label-name" for="name">NAME</label>
-          <input
-            class="comments__input"
-            id="name"
-            type="text"
-            name="commentsInput"
-            placeholder="Enter your name"
-          />
-        </div>
+      <div class="comments__section-container">
 
-        <div class="comments__comment">
-          <label
-            class="comments__label-comment"
-            for="comment"
-            class="forms__comment"
-            >COMMENT</label
-          >
-          <textarea
-            id="comment"
-            type="text"
-            name="comment"
-            rows="5"
-            cols="30"
-            placeholder="Add a new comment"
-          ></textarea>
-        </div>
+        <form autocomplete="off" class="comments__form">
+          <div>
+            <img
+              class="comments__img"
+              src="./assets/Images/Mohan-muruge.jpg"
+              alt="avatar Mohan Muruge"
+            />
+          </div>
 
-        <div class="comments__button">
-          <button
-            class="comments__button-submit"
-            type="submit"
-            class="comment__button"
-          >
-            COMMENT
-          </button>
-        </div>
-      </form>
+          <div class="comments__boxes-container">
+            <div class="comments__name-box">
+              <label class="comments__label-name" for="name">NAME</label>
+              <input
+                class="comments__input-name"
+                id="name"
+                type="text"
+                name="commentsInput"
+                placeholder="Enter your name"
+              />
+            </div>
 
-      <div class="comments__container">
-        <!-- 
+            <div class="comments__comment-box">
+              <label class="comments__label-comment" for="comment"
+                >COMMENT</label
+              >
+              <textarea
+                class="comments__input-comments"
+                id="comment"
+                type="text"
+                name="comment"
+                rows="5"
+                cols="30"
+                placeholder="Add a new comment"
+              ></textarea>
+            </div>
+
+            <div class="comments__button">
+              <button class="comments__button-submit" type="submit">
+                COMMENT
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div class="comments__container">
+          <!-- 
 
     <div class="coments__fans">
       <div.class="comments__avatar"</div>
@@ -223,6 +227,7 @@
       creativity. Can't get enough.</p>
     </div>
 -->
+        </div>
       </div>
     </section>
 

@@ -86,6 +86,116 @@
   }
 }
 
+// Comments Section for mobile
+.comments {
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  &__title {
+    font-weight: 600;
+  }
+
+  &__form {
+    display: flex;
+    border-bottom: 1px solid $mercury;
+    padding-bottom: 0.5rem;
+  }
+
+  &__img {
+    width: 5rem;
+    clip-path: circle();
+    margin-top: 1.5rem;
+  }
+
+  &__input {
+    &-name,
+    &-comments {
+      background-color: $alabaster;
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      border: 1px solid $mercury;
+      border-radius: 6px;
+      outline: none;
+      &:active {
+        border: 1px solid $band-site-black;
+      }
+    }
+  }
+
+  ::placeholder {
+    color: $band-site-black;
+  }
+
+  &__label {
+    &-name,
+    &-comment {
+      color: $silver;
+    }
+  }
+
+  &__button-submit {
+    color: $white;
+    font-size: 1rem;
+    background-color: $band-site-black;
+    border-radius: 0.3rem;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    &:hover {
+      background-color: $band-site-dark-black;
+    }
+  }
+
+  &__container {
+    margin-bottom: 1rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__name {
+    color: $band-site-black;
+    &-box {
+      padding-bottom: 1rem;
+    }
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  &__comment {
+    &-box {
+      padding-bottom: 1rem;
+    }
+  }
+
+  &__date {
+    color: $mercury;
+    margin-top: 0.5rem;
+  }
+
+  &__txt {
+    color: $band-site-dark-black;
+    margin-top: 0;
+  }
+
+  &__fans {
+    border-bottom: 1px solid $mercury;
+    display: flex;
+    gap: 1rem;
+    padding-top: 1rem;
+  }
+
+  &__avatar {
+    background-color: $mercury;
+    height: 3.5rem;
+    width: 18rem;
+    clip-path: circle();
+  }
+}
+
 // Hero img for Tablet
 @include medium {
   .hero {
@@ -154,7 +264,40 @@
       margin-bottom: 0;
     }
   }
+
+  // Comments Section for Tablet
+  .comments {
+    padding-bottom: 1rem;
+
+    &__title {
+      padding-left: 1rem;
+      font-size: 2.5rem;
+    }
+
+    &__section {
+      &-container {
+        padding-right: 5rem;
+        padding-left: 5rem;
+      }
+    }
+
+    &__boxes {
+      &-container {
+        width: 100%;
+      }
+    }
+
+    &__fans {
+      padding-top: 1.5rem;
+      padding-bottom: 1rem;
+    }
+    &__button {
+      width: 40%;
+      margin-left: 18.6rem;
+    }
+  }
 }
+
 // Hero img for Desktop
 @include large {
   .hero {
@@ -197,6 +340,24 @@
       width: 30%;
       height: auto;
       margin-bottom: 0;
+    }
+  }
+
+  // Comments Section for mobile
+  .comments {
+    &__title {
+      padding-left: 6rem;
+    }
+
+    &__section {
+      &-container {
+        padding-right: 20rem;
+        padding-left: 20rem;
+      }
+    }
+
+    &__button {
+      margin-left: 20rem;
     }
   }
 }

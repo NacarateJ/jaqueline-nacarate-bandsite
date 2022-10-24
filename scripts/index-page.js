@@ -49,25 +49,35 @@ const addComment = (event) => {
 const form = document.querySelector(".comments__form");
 form.addEventListener("submit", (event) => addComment(event));
 
+const elementMaker = (type, className, text) => {
+  const element = document.createElement(type);
+  element.classList.add(className);
+
+  if (text !== undefined) {
+    element.innerText = text;
+  }
+  return element;
+};
+
 const displayComments = (commentsObj, commentsContainer) => {
-  const commentsFans = document.createElement("div");
-  commentsFans.classList.add("comments__fans");
+  const commentsFans = elementMaker("div", "comments__fans");
 
-  const commentsName = document.createElement("p");
-  commentsName.classList.add("comments__name");
-  commentsName.innerText = commentsObj.name;
+  const commentsAvatar = elementMaker("div", "comments__avatar");
 
-  const commentsDate = document.createElement("p");
-  commentsDate.classList.add("comments__date");
-  commentsDate.innerText = commentsObj.date;
+  const commentsInfo = elementMaker("div", "comments__info");
 
-  const commentsTxt = document.createElement("p");
-  commentsTxt.classList.add("comments__txt");
-  commentsTxt.innerText = commentsObj.comment;
+  const commentsWrapper = elementMaker("div", "comments__wrapper");
+
+  const commentsName = elementMaker("p", "comments__name", commentsObj.name);
+
+  const commentsDate = elementMaker("p", "comments__date", commentsObj.date);
+
+  const commentsTxt = elementMaker("p", "comments__txt", commentsObj.comment);
 
   commentsContainer.appendChild(commentsFans);
-  commentsFans.append(commentsName, commentsDate, commentsTxt);
-  console.log(commentsContainer);
+  commentsFans.append(commentsAvatar, commentsInfo);
+  commentsInfo.append(commentsWrapper, commentsTxt);
+  commentsWrapper.append(commentsName, commentsDate);
 };
 
 const display = () => {

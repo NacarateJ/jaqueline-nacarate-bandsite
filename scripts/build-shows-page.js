@@ -50,7 +50,7 @@ const elementMaker = (type, className, text) => {
 };
 
 // Function to render my show items
-const renderShow = (showsObj, showsSection) => {
+const displayComments = (showsObj, showsSection) => {
   const showsCards = elementMaker("div", "shows__cards");
 
   const showsWrapper = elementMaker("div", "shows__wrapper");
@@ -87,8 +87,8 @@ const renderShow = (showsObj, showsSection) => {
   // showsCards.addEventListener("click", (event) => {
   //   console.log(event.target);
 
-  //   if (event.target.id) {
-  //     const taskToBeDeleted = document.getElementById(event.target.id);
+  //   if (event.target) {
+  //     const taskToBeDeleted = document.getElementById(event.target);
   //     console.log(taskToBeDeleted);
   //     taskToBeDeleted.classList.toggle("shows__cards--selected");
   //   }
@@ -110,7 +110,7 @@ showsHiddenLabels.append(
 );
 
 // Function to render the entire shows section
-const render = () => {
+const display = () => {
   const showsSection = document.querySelector(".shows"); // To get shows container
   showsSection.innerHTML = ""; // To clean the section
 
@@ -121,8 +121,8 @@ const render = () => {
 
   // Function to loop through each item of my array
   for (let i = 0; i < shows.length; i++) {
-    renderShow(shows[i], showsSection);
+   displayComments(shows[i], showsSection);
   }
 };
 
-render();
+display();
