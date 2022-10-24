@@ -64,31 +64,26 @@
 @media only screen and (min-width: 768px) {
   .header {
     flex-direction: row;
-    height: 15vh;
+    align-items: center;
+    padding-top: 1rem;
   }
   .header__band-logo {
-    padding: 0 0 0 2rem;
+    padding: 0 0 1rem 2rem;
   }
   .header__navigation {
     width: 30%;
   }
   .header__menu {
-    padding-top: 1.7rem;
     padding-left: 4rem;
   }
   .header__menu-item {
     text-align: left;
     margin-right: 5rem;
-  }
-  .header__menu-item--active {
-    padding-bottom: 0.7rem;
+    padding-bottom: 1rem;
   }
 }
 /* header styling for Desktop */
 @media only screen and (min-width: 1280px) {
-  .header {
-    height: 5.5vh;
-  }
   .header__band-logo {
     padding-left: 8rem;
   }

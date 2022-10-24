@@ -1,4 +1,6 @@
 @use "./partials/fonts";
+@use "./partials/colors" as *;
+@use "./partials/breakpoints" as *;
 @use "./partials/components/header";
 @use "./partials/components/heroShows";
 @use "./partials/components/footer";
@@ -26,4 +28,105 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+// Shows Section for Mobile
+.shows {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+
+  &__cards {
+    border-bottom: 1px solid $mercury;
+    border-bottom-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &__label {
+    color: $silver;
+    font-weight: 600;
+  }
+
+  &__hidden-labels {
+    display: none;
+  }
+
+  &__info {
+    color: $band-site-black;
+    &--bold {
+      font-weight: 600;
+    }
+  }
+
+  &__button {
+    color: $white;
+    font-size: 1rem;
+    background-color: $band-site-black;
+    border-radius: 0.3rem;
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    &:hover {
+      background-color: $band-site-dark-black;
+    }
+  }
+}
+
+// Hero img for Tablet
+@include medium {
+  .shows {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+
+    &__cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &__hidden-labels {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &__label {
+      &--hidden {
+        display: none;
+      }
+    }
+  }
+}
+
+// Hero img for Desktop
+@include large {
+  .shows {
+    margin: 1rem 8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // gap: 21rem;
+
+    &__title {
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
+
+    &__container {
+      width: 80%;
+    }
+
+    &__button {
+      padding: 0.5rem;
+      width: 80%;
+      margin-left: 1.5rem;
+    }
+  }
 }

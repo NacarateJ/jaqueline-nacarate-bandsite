@@ -11,7 +11,7 @@
     <!--- Header --->
     <header class="header">
       <div class="header__band-logo">
-        <a href="#">
+        <a href="../index.html">
           <img src="../assets/Logo/Logo-bandsite.svg" alt="band site logo"
         /></a>
       </div>
@@ -19,11 +19,11 @@
       <nav class="header__navigation">
         <ul class="header__menu">
           <li class="header__menu-item">
-            <a href="#">Biography</a>
+            <a href="../index.html">Biography</a>
           </li>
 
           <li class="header__menu-item header__menu-item--active">
-            <a href="#">Shows</a>
+            <a href="../pages/shows.html">Shows</a>
           </li>
         </ul>
       </nav>
@@ -31,16 +31,36 @@
 
     <!--- Hero Img --->
     <div class="hero">
-      <p class="hero__album">Beautiful Beasts Album</p>
-      <h1 class="hero__txt">Queen of Yellow x For The Stings</h1>
-      <iframe
-        class="hero__song"
-        scrolling="no"
-        frameborder="no"
-        allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455188992&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-      ></iframe>
-      <div class="hero__img"></div>
+      <div class="hero__img">
+        <div class="hero__wrapper">
+          <p class="hero__album">Beautiful Beasts Album</p>
+          <h1 class="hero__txt">Queen of Yellow x For The Stings</h1>
+        </div>
+        <div class="hero__song">
+          <iframe
+            width="100%"
+            height="100%"
+            scrolling="no"
+            frameborder="no"
+            show_user="false"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455188992&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+          ></iframe>
+          <div
+            style="
+              font-size: 10px;
+              color: #cccccc;
+              line-break: anywhere;
+              word-break: normal;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              font-family: Interstate, Lucida Grande, Lucida Sans Unicode,
+                Lucida Sans, Garuda, Verdana, Tahoma, sans-serif;
+              font-weight: 100;
+            "
+          ></div>
+        </div>
+      </div>
     </div>
 
     <!--- Shows list --->
@@ -52,12 +72,15 @@
 
   <div class="shows__cards">
 
+div.shows__wrapper
       <p class="shows__label">DATE</p>
       <p class="shows__info">Mon Sept 06 2021</p>
     
+      div.shows__wrapper
       <p class="shows__label">VENUE</p>
       <p class="shows__info">Ronald Lane</p>
- 
+
+ div.shows__wrapper
       <p class="shows__label>LOCATION</p>
       <p class="shows__info">San Francisco, CA</p>
       

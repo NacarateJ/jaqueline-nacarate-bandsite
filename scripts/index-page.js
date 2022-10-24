@@ -19,44 +19,37 @@ const comments = [
   },
 ];
 
-const renderComments = (commentsObj, commentsSection) => {
-  const commentsForm = document.createElement("form");
-  form.classList.add("comments__form");
+const addComment = (event) => {
+  event.preventDefault();
 
-  const commentsAvatar = document.createElement("div");
-  commentsAvatar.classList.add("comments__avatar");
+  const inputCommentValue = event.target.comment.value;
+  const inputNameValue = event.target.name.value;
 
-  const commentsImg = document.createElement("img");
-  commentsImg.classList.add("comments__img");
-  commentsImg.setAttribute("src=");
+  const date = new Date();
+  const formattedDate =
+    (date.getMonth() > 8 ? date.getMonth() + 1 : "0" + (date.getMonth() + 1)) +
+    "/" +
+    (date.getDate() > 9 ? date.getDate() : "0" + date.getDate()) +
+    "/" +
+    date.getFullYear();
 
-  const commentsNameBox = document.createElement("div");
-  commentsNameBox.classList.add("comments__name");
+  const commentsObj = {
+    name: inputNameValue,
+    comment: inputCommentValue,
+    date: formattedDate,
+  };
 
-  const commentsLabelName = document.createElement("label");
-  commentsLabelName.classList.add("comments__label");
+  comments.unshift(commentsObj);
+  display(comments);
 
-  const commentsBox = document.createElement("input");
-  commentsBox.classList.add("comments__box");
-  commentsBox.innerText = "Enter your name";
+  // clear everything from the form
+  event.target.reset();
+};
 
-  const commentsComment = document.createElement("div");
-  commentsComment.classList.add("comments__comment");
+const form = document.querySelector(".comments__form");
+form.addEventListener("submit", (event) => addComment(event));
 
-  const commentsLabelComment = document.createElement("label");
-  commentsLabelComment.classList.add("comments__label");
-  commentsLabelComment.innerText = "Add a new comment";
-
-  const commentsButton = document.createElement("div");
-  commentsButton.classList.add("comments__button");
-
-  const commentsButtonSubmit = document.createElement("button");
-  commentsButtonSubmit.classList.add("comments__button-submit");
-  commentsButtonSubmit.innerText = "COMMENT";
-
-  const commentsContainer = document.createElement("div");
-  commentsContainer.classList.add("comments__container");
-
+const displayComments = (commentsObj, commentsContainer) => {
   const commentsFans = document.createElement("div");
   commentsFans.classList.add("comments__fans");
 
@@ -72,33 +65,18 @@ const renderComments = (commentsObj, commentsSection) => {
   commentsTxt.classList.add("comments__txt");
   commentsTxt.innerText = commentsObj.comment;
 
-  commentsSection.appendChild(commentsForm);
-  commentsForm.append(
-    commentsAvatar,
-    commentsNameBox,
-    commentsComment,
-    commentsButton
-  );
-  commentsAvatar.appendChild(commentsImg);
-  commentsNameBox.append(commentsLabelName, commentsBox);
-  commentsComment.appendChild(commentsLabelComment);
-  commentsButton.appendChild(commentsButtonSubmit);
   commentsContainer.appendChild(commentsFans);
   commentsFans.append(commentsName, commentsDate, commentsTxt);
+  console.log(commentsContainer);
 };
 
-const render = () => {
-  const commentsSection = document.querySelector(".comments");
-  commentsSection.innerHTML = "";
-
-  const commentsTitle = document.createElement("h2");
-  commentsTitle.classList.add("comments__title");
-  commentsTitle.innerText = "Join the Conversation";
-  commentsSection.appendChild("commentsTitle");
+const display = () => {
+  const commentsContainer = document.querySelector(".comments__container");
+  commentsContainer.innerHTML = "";
 
   for (let i = 0; i < comments.length; i++) {
-    renderComments(comments[i], commentsSection);
+    displayComments(comments[i], commentsContainer);
   }
 };
 
-render();
+display();

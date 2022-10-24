@@ -39,70 +39,75 @@ const shows = [
   },
 ];
 
+const elementMaker = (type, className, text) => {
+  const element = document.createElement(type);
+  element.classList.add(className);
+
+  if (text !== undefined) {
+    element.innerText = text;
+  }
+  return element;
+};
+
 // Function to render my show items
 const renderShow = (showsObj, showsSection) => {
-  const showsContainer = document.createElement("div");
-  showsContainer.classList.add("shows__container");
+  const showsCards = elementMaker("div", "shows__cards");
 
-  const showsCards = document.createElement("div");
-  showsCards.classList.add("shows__cards");
+  const showsWrapper = elementMaker("div", "shows__wrapper");
 
-  const showsLabel = document.createElement("p");
-  showsLabel.classList.add("shows__label");
-  showsLabel.innerText = "DATE";
+  const showsLabel = elementMaker("p", "shows__label", "DATE");
+  showsLabel.classList.add("shows__label--hidden");
 
-  const showsLabel2 = document.createElement("p");
-  showsLabel2.classList.add("shows__label");
-  showsLabel2.innerText = "VENUE";
+  const showsWrapper2 = elementMaker("div", "shows__wrapper");
 
-  const showsLabel3 = document.createElement("p");
-  showsLabel3.classList.add("shows__label");
-  showsLabel3.innerText = "LOCATION";
+  const showsLabel2 = elementMaker("p", "shows__label", "VENUE");
+  showsLabel2.classList.add("shows__label--hidden");
 
-  const showsInfo = document.createElement("p");
-  showsInfo.classList.add("shows__info");
+  const showsWrapper3 = elementMaker("div", "shows__wrapper");
+
+  const showsLabel3 = elementMaker("p", "shows__label", "LOCATION");
+  showsLabel3.classList.add("shows__label--hidden");
+
+  const showsInfo = elementMaker("p", "shows__info", showsObj.date);
   showsInfo.classList.add("shows__info--bold");
-  showsInfo.innerText = showsObj.date;
 
-  const showsInfo2 = document.createElement("p");
-  showsInfo2.classList.add("shows__info");
-  showsInfo2.classList.add("shows__info--bold");
-  showsInfo2.innerText = showsObj.venue;
+  const showsInfo2 = elementMaker("p", "shows__info", showsObj.venue);
 
-  const showsInfo3 = document.createElement("p");
-  showsInfo3.classList.add("shows__info");
-  showsInfo3.classList.add("shows__info--bold");
-  showsInfo3.innerText = showsObj.location;
+  const showsInfo3 = elementMaker("p", "shows__info", showsObj.location);
 
-  const showsButton = document.createElement("button");
-  showsButton.classList.add("shows__button");
-  showsButton.innerText = "BUY TICKETS";
+  const showsButton = elementMaker("button", "shows__button", "BUY TICKETS");
 
   showsSection.append(showsContainer);
-  showsContainer.appendChild(showsCards);
-  showsCards.append(
-    showsLabel,
-    showsInfo,
-    showsButton,
-    showsLabel2,
-    showsInfo2,
-    showsButton,
-    showsLabel3,
-    showsInfo3,
-    showsButton
-  );
+  showsContainer.append(showsCards);
+  showsCards.append(showsWrapper, showsWrapper2, showsWrapper3, showsButton);
+  showsWrapper.append(showsLabel, showsInfo);
+  showsWrapper2.append(showsLabel2, showsInfo2);
+  showsWrapper3.append(showsLabel3, showsInfo3);
 
-  showsCards.addEventListener("click", (event) => {
-    console.log(event.target);
+  // showsCards.addEventListener("click", (event) => {
+  //   console.log(event.target);
 
-    if (event.target.id) {
-      const taskToBeDeleted = document.getElementById(event.target.id);
-      console.log(taskToBeDeleted);
-      taskToBeDeleted.classList.toggle("shows__cards--selected");
-    }
-    // add else block to click anywhere (child) and still add the event selected
-  });
+  //   if (event.target.id) {
+  //     const taskToBeDeleted = document.getElementById(event.target.id);
+  //     console.log(taskToBeDeleted);
+  //     taskToBeDeleted.classList.toggle("shows__cards--selected");
+  //   }
+  //   // add else block to click anywhere (child) and still add the event selected
+  // });
 };
+
+const showsContainer = elementMaker("div", "shows__container");
+const showsHiddenLabels = elementMaker("div", "shows__hidden-labels");
+const showsLabelHidden = elementMaker("p", "shows__label", "DATE");
+const showsLabel2Hidden = elementMaker("p", "shows__label", "VENUE");
+const showsLabel3Hidden = elementMaker("p", "shows__label", "LOCATION");
+
+showsContainer.append(showsHiddenLabels);
+showsHiddenLabels.append(
+  showsLabelHidden,
+  showsLabel2Hidden,
+  showsLabel3Hidden
+);
 
 // Function to render the entire shows section
 const render = () => {
@@ -112,7 +117,7 @@ const render = () => {
   const showsTitle = document.createElement("h2");
   showsTitle.classList.add("shows__title");
   showsTitle.innerText = "Shows";
-  showsSection.appendChild(showsTitle);
+  showsSection.append(showsTitle);
 
   // Function to loop through each item of my array
   for (let i = 0; i < shows.length; i++) {
