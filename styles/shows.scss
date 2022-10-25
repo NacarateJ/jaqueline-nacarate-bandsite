@@ -1,0 +1,140 @@
+@use "./partials/fonts";
+@use "./partials/colors" as *;
+@use "./partials/breakpoints" as *;
+@use "./partials/components/header";
+@use "./partials/components/heroShows";
+@use "./partials/components/footer";
+
+html,
+body {
+  margin: 0;
+  font-family: "Avenir Next";
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Shows Section for Mobile
+.shows {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 1.5rem 1rem 1.5rem;
+
+  &__cards {
+    border-bottom: 1px solid $mercury;
+    border-bottom-width: 100%;
+    padding-bottom: 1rem;
+    &:hover {
+      background-color: $alabaster;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &__label {
+    color: $silver;
+    font-weight: 600;
+  }
+
+  &__hidden-labels {
+    display: none;
+  }
+
+  &__info {
+    color: $band-site-black;
+    &--bold {
+      font-weight: 600;
+    }
+  }
+
+  &__button {
+    color: $white;
+    font-size: 1rem;
+    background-color: $band-site-black;
+    border-radius: 0.3rem;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    &:hover {
+      background-color: $band-site-dark-black;
+    }
+  }
+}
+
+// Shows section for Tablet
+@include medium {
+  .shows {
+    margin: 0 2rem 1rem 2rem;
+
+    &__hidden-labels,
+    &__cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding-left: 1rem;
+      padding-top: 1rem;
+    }
+
+    &__label {
+      &--hidden {
+        display: none;
+      }
+    }
+
+    &__button {
+      margin-top: 0;
+    }
+  }
+}
+
+// Shows section for Desktop
+@include large {
+  .shows {
+    margin: 1rem 8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // gap: 21rem;
+
+    &__title {
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
+
+    &__container {
+      width: 80%;
+    }
+
+    &__hidden-labels,
+    &__cards {
+      padding-left: 1rem;
+      padding-top: 1rem;
+    }
+
+    &__button {
+      padding: 0.5rem;
+      width: 80%;
+      margin-left: 1.5rem;
+    }
+  }
+}

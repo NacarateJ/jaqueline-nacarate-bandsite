@@ -1,0 +1,94 @@
+@use "../colors" as *;
+@use "../breakpoints" as *;
+@use "../fonts";
+@use "../components/header";
+@use "../components/footer" as footer;
+
+// Hero img for Mobile
+
+.hero {
+  &__img {
+    background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)),
+      url("../assets/Images/hero-shows.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+  }
+
+  &__album {
+    color: $white;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 2rem;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    margin: 0;
+  }
+
+  &__txt {
+    color: $white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    inline-size: 17rem;
+    padding-left: 2rem;
+  }
+
+  &__song {
+    width: 90%;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+  }
+}
+
+// Hero img for Tablet
+@include medium {
+  .hero {
+    &__album {
+      font-weight: 600;
+      font-size: 2rem;
+      padding-top: 5rem;
+    }
+
+    &__txt {
+      line-height: 5rem;
+      inline-size: 40rem;
+      font-size: 3.8rem;
+      margin-top: 2;
+    }
+
+    &__song {
+      padding-left: 2rem;
+      width: 55%;
+    }
+  }
+}
+
+// Hero img for Desktop
+@include large {
+  .hero {
+    &__img {
+      display: flex;
+      padding-right: 8rem;
+      padding-left: 8rem;
+    }
+
+    &__wrapper {
+      margin-top: 10rem;
+      margin-bottom: 10rem;
+    }
+    &__album {
+      padding-left: 0;
+    }
+
+    &__txt {
+      padding-left: 0;
+    }
+    &__song {
+      width: 38%;
+      margin-top: 20rem;
+      margin-bottom: 20rem;
+    }
+  }
+}
