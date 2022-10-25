@@ -19,6 +19,27 @@ const comments = [
   },
 ];
 
+// NOT WORKING :(
+// const clearError = (commentsAddForm, commentsAddInput, commentsAddError) => {
+//   commentsAddForm.removeChild(commentsAddError);
+//   commentsAddInput.classList.remove("comments__input-name--error");
+// };
+
+// const showError = () => {
+//   const commentsAddForm = document.querySelector(".comments__name-box");
+//   const commentsAddInput = document.querySelector(".comments__input-name");
+//   commentsAddInput.classList.add("comments__input-name--error");
+//   const commentsAddError = document.createElement("p");
+//   commentsAddError.textContent = "Please enter your name";
+//   commentsAddError.classList.add("comments__error");
+//   commentsAddForm.appendChild(commentsAddError);
+
+//   setTimeout(
+//     () => clearError(commentsAddForm, commentsAddInput, commentsAddError),
+//     2000
+//   );
+// };
+
 const addComment = (event) => {
   event.preventDefault();
 

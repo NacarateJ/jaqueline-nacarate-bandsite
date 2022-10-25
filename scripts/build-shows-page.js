@@ -52,6 +52,7 @@ const elementMaker = (type, className, text) => {
 // Function to render my show items
 const displayComments = (showsObj, showsSection) => {
   const showsCards = elementMaker("div", "shows__cards");
+  showsCards.classList.add("shows__cards--selected");
 
   const showsWrapper = elementMaker("div", "shows__wrapper");
 
@@ -85,6 +86,8 @@ const displayComments = (showsObj, showsSection) => {
   showsWrapper3.append(showsLabel3, showsInfo3);
 
   // showsCards.addEventListener("click", (event) => {
+  //   event.preventDefault();
+
   //   console.log(event.target);
 
   //   if (event.target) {
@@ -121,7 +124,7 @@ const display = () => {
 
   // Function to loop through each item of my array
   for (let i = 0; i < shows.length; i++) {
-   displayComments(shows[i], showsSection);
+    displayComments(shows[i], showsSection);
   }
 };
 

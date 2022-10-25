@@ -35,13 +35,15 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+  margin: 0 1.5rem 1rem 1.5rem;
 
   &__cards {
     border-bottom: 1px solid $mercury;
     border-bottom-width: 100%;
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    &:hover {
+      background-color: $alabaster;
+    }
   }
 
   &__title {
@@ -73,28 +75,24 @@ a {
     border-radius: 0.3rem;
     width: 100%;
     padding: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     &:hover {
       background-color: $band-site-dark-black;
     }
   }
 }
 
-// Hero img for Tablet
+// Shows section for Tablet
 @include medium {
   .shows {
-    margin-left: 2rem;
-    margin-right: 2rem;
-    margin-bottom: 1rem;
+    margin: 0 2rem 1rem 2rem;
 
+    &__hidden-labels,
     &__cards {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-    }
-
-    &__hidden-labels {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      padding-left: 1rem;
+      padding-top: 1rem;
     }
 
     &__label {
@@ -102,10 +100,14 @@ a {
         display: none;
       }
     }
+
+    &__button {
+      margin-top: 0;
+    }
   }
 }
 
-// Hero img for Desktop
+// Shows section for Desktop
 @include large {
   .shows {
     margin: 1rem 8rem;
@@ -121,6 +123,12 @@ a {
 
     &__container {
       width: 80%;
+    }
+
+    &__hidden-labels,
+    &__cards {
+      padding-left: 1rem;
+      padding-top: 1rem;
     }
 
     &__button {
