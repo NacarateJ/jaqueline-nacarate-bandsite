@@ -1,6 +1,6 @@
 @use "../colors" as *;
 @use "../breakpoints" as *;
-@use "../fonts";
+
 
 /* styles for header for mobile */
 .header {
@@ -15,14 +15,14 @@
 
   &__navigation {
     width: 100%;
-    height: auto;
+
   }
 
   &__menu {
     display: flex;
 
     &-item {
-      height: 100%;
+
       color: $silver;
       width: 50%;
       text-align: center;
@@ -40,11 +40,7 @@
 @include medium {
   .header {
     flex-direction: row;
-    align-items: center;
-    padding-top: 1rem;
 
-    &__band-logo {
-      padding: 0 0 1rem 2rem;
     }
 
     &__navigation {
@@ -52,12 +48,13 @@
     }
 
     &__menu {
+
       padding-left: 4rem;
 
       &-item {
         text-align: left;
         margin-right: 5rem;
-        padding-bottom: 1rem;
+
       }
     }
   }
@@ -66,8 +63,6 @@
 /* header styling for Desktop */
 @include large {
   .header {
-    &__band-logo {
-      padding-left: 8rem;
-    }
+
   }
 }
