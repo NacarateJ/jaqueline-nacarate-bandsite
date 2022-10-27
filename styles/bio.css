@@ -48,9 +48,7 @@
   display: flex;
 }
 .header__menu-item {
-
   height: 100%;
-
   color: #afafaf;
   width: 50%;
   text-align: center;
@@ -66,36 +64,29 @@
 @media only screen and (min-width: 768px) {
   .header {
     flex-direction: row;
-
     align-items: center;
     padding-top: 1rem;
   }
   .header__band-logo {
     padding: 0 0 1rem 2rem;
-
   }
   .header__navigation {
     width: 30%;
   }
   .header__menu {
-
     padding-left: 4rem;
   }
   .header__menu-item {
     text-align: left;
     margin-right: 5rem;
-
     padding-bottom: 1rem;
-
   }
 }
 /* header styling for Desktop */
 @media only screen and (min-width: 1280px) {
-
   .header__band-logo {
     padding-left: 8rem;
   }
-
 }
 .hero {
   position: relative;
@@ -267,7 +258,9 @@
   -webkit-clip-path: circle();
           clip-path: circle();
 }
-
+.comments__info {
+  width: 100%;
+}
 
 @media only screen and (min-width: 768px) {
   .hero__img {
@@ -322,7 +315,6 @@
     height: auto;
     margin-bottom: 0;
   }
-
   .comments {
     padding-bottom: 1rem;
   }

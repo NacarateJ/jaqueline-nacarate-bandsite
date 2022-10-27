@@ -52,7 +52,7 @@ const elementMaker = (type, className, text) => {
 // Function to render my show items
 const displayComments = (showsObj, showsSection) => {
   const showsCards = elementMaker("div", "shows__cards");
-  showsCards.classList.add("shows__cards--selected");
+  // showsCards.classList.add("shows__cards--selected");
 
   const showsWrapper = elementMaker("div", "shows__wrapper");
 
@@ -129,3 +129,31 @@ const display = () => {
 };
 
 display();
+
+const showsCardsBackGround = document.querySelectorAll(".shows__cards");
+
+for (let i = 0; i < showsCardsBackGround.length; i++) {
+  const eachShowsCardsBackGround = showsCardsBackGround[i];
+
+  eachShowsCardsBackGround.addEventListener("click", (event) => {
+    handleClick(event);
+    // for (let i = 0; i < showsCardsBackGround.length; i++) {
+    //   showsCardsBackGround[i].classList.remove("shows__cards--selected");
+    //   showsCardsBackGround[i].classList.remove("nohover");
+    // }
+
+    // eachShowsCardsBackGround.classList.add("shows__cards--selected");
+    // eachShowsCardsBackGround.classList.add("nohover");
+  });
+}
+
+function handleClick(event) {
+  event.preventDefault();
+  for (let i = 0; i < showsCardsBackGround.length; i++) {
+    showsCardsBackGround[i].classList.remove("shows__cards--selected");
+    showsCardsBackGround[i].classList.remove("nohover");
+  }
+
+  event.currentTarget.classList.add("shows__cards--selected");
+  event.currentTarget.classList.add("nohover");
+}

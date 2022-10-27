@@ -41,7 +41,11 @@ a {
     border-bottom: 1px solid $mercury;
     border-bottom-width: 100%;
     padding-bottom: 1rem;
-    &:hover {
+    &--selected {
+      background-color: $mercury;
+    }
+
+    &:not(.nohover):hover {
       background-color: $alabaster;
     }
   }
