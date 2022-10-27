@@ -194,6 +194,10 @@
     width: 18rem;
     clip-path: circle();
   }
+
+  &__info {
+    width: 100%;
+  }
 }
 
 // Hero img for Tablet
@@ -360,5 +364,4 @@
       margin-left: 20rem;
     }
   }
-
 }
