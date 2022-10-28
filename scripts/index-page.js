@@ -40,31 +40,13 @@
 //   );
 // };
 
-const comments = [];
-
-// const getComments = (comments) => {
-//   const commentsPromise = axios.get(
-//     "https://project-1-api.herokuapp.com/comments/?api_key=66a6f4bd-1089-49e6-9d8d-2a42b30e913c"
-//   );
-//   commentsPromise.then((response) => {
-//     console.log(response.data);
-//   });
-// };
-
-// axios.post(
-//   "https://project-1-api.herokuapp.com/comments/?api_key=66a6f4bd-1089-49e6-9d8d-2a42b30e913c/200",
-//   {
-//     name: "Connor Walton",
-//     comment:
-//       "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-//   }
-// );
-
 const addComment = (event) => {
   event.preventDefault();
 
   const inputCommentValue = event.target.comment.value;
   const inputNameValue = event.target.name.value;
+
+  postComment(inputNameValue, inputCommentValue);
 
   const date = new Date();
   const formattedDate =
@@ -77,18 +59,41 @@ const addComment = (event) => {
   const commentsObj = {
     name: inputNameValue,
     comment: inputCommentValue,
-    date: formattedDate,
+    // date: formattedDate,
   };
 
-  comments.unshift(commentsObj);
-  display(comments);
-
+  // comments.unshift(comment);
+  console.log(commentsObj);
+  // renderComments(commentsObj);
+  postComment(commentsObj);
   // clear everything from the form
   event.target.reset();
 };
 
 const form = document.querySelector(".comments__form");
-form.addEventListener("submit", (event) => addComment(event));
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  addComment(event);
+});
+
+// POST goes here, make sure it works on postman name and comment only
+// const postComment = (name, comment) => {
+const postComment = (comments) => {
+  axios
+    .post(
+      "https://project-1-api.herokuapp.com/comments/?api_key=3e235735-6aa0-4a53-b7dd-cf57cdec1dce",
+      comments
+    )
+
+    .then((result) => {
+      renderComments(comments);
+      console.log(result);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
 const elementMaker = (type, className, text) => {
   const element = document.createElement(type);
@@ -100,55 +105,47 @@ const elementMaker = (type, className, text) => {
   return element;
 };
 
-const displayComments = (commentsObj, commentsContainer) => {
-  const commentsFans = elementMaker("div", "comments__fans");
-
-  const commentsAvatar = elementMaker("div", "comments__avatar");
-
-  const commentsInfo = elementMaker("div", "comments__info");
-
-  const commentsWrapper = elementMaker("div", "comments__wrapper");
-
-  const commentsName = elementMaker("p", "comments__name", commentsObj.name);
-
-  const commentsDate = elementMaker("p", "comments__date", commentsObj.date);
-
-  const commentsTxt = elementMaker("p", "comments__txt", commentsObj.comment);
-
-  commentsContainer.appendChild(commentsFans);
-  commentsFans.append(commentsAvatar, commentsInfo);
-  commentsInfo.append(commentsWrapper, commentsTxt);
-  commentsWrapper.append(commentsName, commentsDate);
-};
-
-function displayComments() {
+function renderComments(newUser) {
   const commentsContainer = document.querySelector(".comments__container");
   commentsContainer.innerHTML = "";
 
-  const getComments = (comments) => {
-    axios
-      .get(
-        "https://project-1-api.herokuapp.com/comments/?api_key=66a6f4bd-1089-49e6-9d8d-2a42b30e913c"
-      )
+  // axios.get takes the URL and returns a promise - success or error
+  axios
+    .get(
+      "https://project-1-api.herokuapp.com/comments/?api_key=3e235735-6aa0-4a53-b7dd-cf57cdec1dce",
+      newUser
+    )
+    .then((response) => {
+      // response.data is my array
+      const commentsData = response.data;
 
-      .then((response) => {
-        console.log(response.data);
-        display(response.data);
+      const sortedCommentsData = commentsData.sort(function (a, b) {
+        return b.timestamp - a.timestamp;
       });
-  };
 
-  // axios.post(
-  //   "#",
-  //   {
-  //     name: "Connor Walton",
-  //     comment:
-  //       "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-  //   }
-  // );
+      sortedCommentsData.forEach((comment) => {
+        console.log(comment);
+        const commentsFans = elementMaker("div", "comments__fans");
+        const commentsAvatar = elementMaker("div", "comments__avatar");
+        const commentsInfo = elementMaker("div", "comments__info");
+        const commentsWrapper = elementMaker("div", "comments__wrapper");
+        const commentsName = elementMaker("p", "comments__name", comment.name);
+        const commentsDate = elementMaker(
+          "p",
+          "comments__date",
+          comment.timestamp
+        );
+        const commentsTxt = elementMaker("p", "comments__txt", comment.comment);
 
-  for (let i = 0; i < comments.length; i++) {
-    displayComments(comments[i], commentsContainer);
-  }
+        commentsContainer.appendChild(commentsFans);
+        commentsFans.append(commentsAvatar, commentsInfo);
+        commentsInfo.append(commentsWrapper, commentsTxt);
+        commentsWrapper.append(commentsName, commentsDate);
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
-display();
+renderComments();

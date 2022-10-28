@@ -1,43 +1,43 @@
 // create array
 
-const shows = [
-  {
-    date: "Mon Sept 06 2021",
-    venue: "Ronald Lane",
-    location: "San Francisco, CA",
-  },
+const shows = [];
+//   {
+//     date: "Mon Sept 06 2021",
+//     venue: "Ronald Lane",
+//     location: "San Francisco, CA",
+//   },
 
-  {
-    date: "Tue Sept 21 2021",
-    venue: "Pier 3 East",
-    location: "San Francisco, CA",
-  },
+//   {
+//     date: "Tue Sept 21 2021",
+//     venue: "Pier 3 East",
+//     location: "San Francisco, CA",
+//   },
 
-  {
-    date: "Fri Oct 15 2021",
-    venue: "View Lounge",
-    location: "San Francisco, CA",
-  },
+//   {
+//     date: "Fri Oct 15 2021",
+//     venue: "View Lounge",
+//     location: "San Francisco, CA",
+//   },
 
-  {
-    date: "Tue Nov 06 2021",
-    venue: "Hyatt Agency",
-    location: "San Francisco, CA",
-  },
+//   {
+//     date: "Tue Nov 06 2021",
+//     venue: "Hyatt Agency",
+//     location: "San Francisco, CA",
+//   },
 
-  {
-    date: "Fri Nov 26 2021",
-    venue: "Moscow Center",
-    location: "San Francisco, CA",
-  },
+//   {
+//     date: "Fri Nov 26 2021",
+//     venue: "Moscow Center",
+//     location: "San Francisco, CA",
+//   },
 
-  {
-    date: "Wed Dec 15 2021",
-    venue: "Press Club",
-    location: "San Francisco, CA",
-    Button: "BUY TICKETS",
-  },
-];
+//   {
+//     date: "Wed Dec 15 2021",
+//     venue: "Press Club",
+//     location: "San Francisco, CA",
+//     Button: "BUY TICKETS",
+//   },
+// ];
 
 const elementMaker = (type, className, text) => {
   const element = document.createElement(type);
@@ -50,32 +50,21 @@ const elementMaker = (type, className, text) => {
 };
 
 // Function to render my show items
-const displayComments = (showsObj, showsSection) => {
+const renderComments = (showsObj, showsSection) => {
   const showsCards = elementMaker("div", "shows__cards");
-  // showsCards.classList.add("shows__cards--selected");
-
   const showsWrapper = elementMaker("div", "shows__wrapper");
-
   const showsLabel = elementMaker("p", "shows__label", "DATE");
   showsLabel.classList.add("shows__label--hidden");
-
   const showsWrapper2 = elementMaker("div", "shows__wrapper");
-
   const showsLabel2 = elementMaker("p", "shows__label", "VENUE");
   showsLabel2.classList.add("shows__label--hidden");
-
   const showsWrapper3 = elementMaker("div", "shows__wrapper");
-
   const showsLabel3 = elementMaker("p", "shows__label", "LOCATION");
   showsLabel3.classList.add("shows__label--hidden");
-
   const showsInfo = elementMaker("p", "shows__info", showsObj.date);
   showsInfo.classList.add("shows__info--bold");
-
   const showsInfo2 = elementMaker("p", "shows__info", showsObj.venue);
-
   const showsInfo3 = elementMaker("p", "shows__info", showsObj.location);
-
   const showsButton = elementMaker("button", "shows__button", "BUY TICKETS");
 
   showsSection.append(showsContainer);
@@ -84,19 +73,6 @@ const displayComments = (showsObj, showsSection) => {
   showsWrapper.append(showsLabel, showsInfo);
   showsWrapper2.append(showsLabel2, showsInfo2);
   showsWrapper3.append(showsLabel3, showsInfo3);
-
-  // showsCards.addEventListener("click", (event) => {
-  //   event.preventDefault();
-
-  //   console.log(event.target);
-
-  //   if (event.target) {
-  //     const taskToBeDeleted = document.getElementById(event.target);
-  //     console.log(taskToBeDeleted);
-  //     taskToBeDeleted.classList.toggle("shows__cards--selected");
-  //   }
-  //   // add else block to click anywhere (child) and still add the event selected
-  // });
 };
 
 const showsContainer = elementMaker("div", "shows__container");
@@ -113,22 +89,37 @@ showsHiddenLabels.append(
 );
 
 // Function to render the entire shows section
-const display = () => {
+const render = () => {
   const showsSection = document.querySelector(".shows"); // To get shows container
   showsSection.innerHTML = ""; // To clean the section
 
-  const showsTitle = document.createElement("h2");
-  showsTitle.classList.add("shows__title");
-  showsTitle.innerText = "Shows";
-  showsSection.append(showsTitle);
+  axios
+    .get(
+      "https://project-1-api.herokuapp.com/showdates?api_key=66a6f4bd-1089-49e6-9d8d-2a42b30e913c"
+    )
+    .then((response) => {
+      const showsData = response.data;
 
-  // Function to loop through each item of my array
-  for (let i = 0; i < shows.length; i++) {
-    displayComments(shows[i], showsSection);
-  }
+      showsData.forEach((show) => {
+        console.log(show);
+        const showsTitle = document.createElement("h2");
+        showsTitle.classList.add("shows__title");
+        showsTitle.innerText = "Shows";
+        showsSection.append(showsTitle);
+      });
+
+      // Function to loop through each item of my array
+      // for (let i = 0; i < shows.length; i++) {
+      //   renderComments(shows[i], showsSection);
+      // }
+    })
+
+    .catch((error) => {
+      console.log(error);
+    });
+
+  render();
 };
-
-display();
 
 const showsCardsBackGround = document.querySelectorAll(".shows__cards");
 
@@ -136,14 +127,8 @@ for (let i = 0; i < showsCardsBackGround.length; i++) {
   const eachShowsCardsBackGround = showsCardsBackGround[i];
 
   eachShowsCardsBackGround.addEventListener("click", (event) => {
+    event.preventDefault();
     handleClick(event);
-    // for (let i = 0; i < showsCardsBackGround.length; i++) {
-    //   showsCardsBackGround[i].classList.remove("shows__cards--selected");
-    //   showsCardsBackGround[i].classList.remove("nohover");
-    // }
-
-    // eachShowsCardsBackGround.classList.add("shows__cards--selected");
-    // eachShowsCardsBackGround.classList.add("nohover");
   });
 }
 
