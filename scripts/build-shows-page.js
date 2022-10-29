@@ -1,6 +1,6 @@
 // create array
 
-const shows = [];
+// const shows = [];
 //   {
 //     date: "Mon Sept 06 2021",
 //     venue: "Ronald Lane",
@@ -50,7 +50,7 @@ const elementMaker = (type, className, text) => {
 };
 
 // Function to render my show items
-const renderComments = (showsObj, showsSection) => {
+const renderShows = (showsObj, showsSection) => {
   const showsCards = elementMaker("div", "shows__cards");
   const showsWrapper = elementMaker("div", "shows__wrapper");
   const showsLabel = elementMaker("p", "shows__label", "DATE");
@@ -75,70 +75,83 @@ const renderComments = (showsObj, showsSection) => {
   showsWrapper3.append(showsLabel3, showsInfo3);
 };
 
-const showsContainer = elementMaker("div", "shows__container");
-const showsHiddenLabels = elementMaker("div", "shows__hidden-labels");
-const showsLabelHidden = elementMaker("p", "shows__label", "DATE");
-const showsLabel2Hidden = elementMaker("p", "shows__label", "VENUE");
-const showsLabel3Hidden = elementMaker("p", "shows__label", "LOCATION");
-
-showsContainer.append(showsHiddenLabels);
-showsHiddenLabels.append(
-  showsLabelHidden,
-  showsLabel2Hidden,
-  showsLabel3Hidden
-);
-
 // Function to render the entire shows section
-const render = () => {
-  const showsSection = document.querySelector(".shows"); // To get shows container
-  showsSection.innerHTML = ""; // To clean the section
-
+const apiShows = () => {
   axios
     .get(
       "https://project-1-api.herokuapp.com/showdates?api_key=66a6f4bd-1089-49e6-9d8d-2a42b30e913c"
     )
     .then((response) => {
-      const showsData = response.data;
-
-      showsData.forEach((show) => {
-        console.log(show);
-        const showsTitle = document.createElement("h2");
-        showsTitle.classList.add("shows__title");
-        showsTitle.innerText = "Shows";
-        showsSection.append(showsTitle);
-      });
-
-      // Function to loop through each item of my array
-      // for (let i = 0; i < shows.length; i++) {
-      //   renderComments(shows[i], showsSection);
-      // }
+      apiArray(response.data);
     })
-
     .catch((error) => {
       console.log(error);
     });
-
-  render();
 };
 
-const showsCardsBackGround = document.querySelectorAll(".shows__cards");
+const localArray = [];
 
-for (let i = 0; i < showsCardsBackGround.length; i++) {
-  const eachShowsCardsBackGround = showsCardsBackGround[i];
-
-  eachShowsCardsBackGround.addEventListener("click", (event) => {
-    event.preventDefault();
-    handleClick(event);
-  });
+const apiArray = (arr) => {
+ for(let i = 0; i < arr.length; i++) {
+  localArray[i] = arr[i];
+ }
 }
+console.log(localArray)
+ const showsContainer = elementMaker("div", "shows__container");
+ const showsHiddenLabels = elementMaker("div", "shows__hidden-labels");
+ const showsLabelHidden = elementMaker("p", "shows__label", "DATE");
+ const showsLabel2Hidden = elementMaker("p", "shows__label", "VENUE");
+ const showsLabel3Hidden = elementMaker("p", "shows__label", "LOCATION");
 
-function handleClick(event) {
-  event.preventDefault();
-  for (let i = 0; i < showsCardsBackGround.length; i++) {
-    showsCardsBackGround[i].classList.remove("shows__cards--selected");
-    showsCardsBackGround[i].classList.remove("nohover");
-  }
+ showsContainer.append(showsHiddenLabels);
+ showsHiddenLabels.append(
+   showsLabelHidden,
+   showsLabel2Hidden,
+   showsLabel3Hidden
+ );
 
-  event.currentTarget.classList.add("shows__cards--selected");
-  event.currentTarget.classList.add("nohover");
+const render = (showsContainer) => {
+for(let i = 0; i < localArray.length; i++) {
+  renderShows(localArray[i], showsContainer)
+  console.log(showsContainer)
 }
+  // showsData.forEach((showsObj) => {
+  //   renderShows(showsObj, showsContainer);
+  //  console.log(showsContainer);
+    
+  // });
+};
+
+render(showsContainer);
+
+// const showsSection = document.querySelector(".shows"); // To get shows container
+// showsSection.innerHTML = ""; // To clean the section
+
+// const showsTitle = document.createElement("h2");
+// showsTitle.classList.add("shows__title");
+// showsTitle.innerText = "Shows";
+// showsSection.append(showsTitle);
+
+// const showsCardsBackGround = document.querySelectorAll(".shows__cards");
+
+// for (let i = 0; i < showsCardsBackGround.length; i++) {
+//   const eachShowsCardsBackGround = showsCardsBackGround[i];
+
+//   eachShowsCardsBackGround.addEventListener("click", (event) => {
+//     event.preventDefault();
+//     handleClick(event);
+//   });
+// }
+
+// function handleClick(event) {
+//   event.preventDefault();
+//   for (let i = 0; i < showsCardsBackGround.length; i++) {
+//     showsCardsBackGround[i].classList.remove("shows__cards--selected");
+//     showsCardsBackGround[i].classList.remove("nohover");
+//   }
+
+//   event.currentTarget.classList.add("shows__cards--selected");
+//   event.currentTarget.classList.add("nohover");
+// }
+
+apiShows();
