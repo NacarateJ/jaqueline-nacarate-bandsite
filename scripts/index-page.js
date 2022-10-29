@@ -1,24 +1,3 @@
-// const comments = [
-//   {
-//     name: "Connor Walton",
-//     date: "02/17/2021",
-//     comment:
-//       "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-//   },
-//   {
-//     name: "Emilie Beach",
-//     date: "01/09/2021",
-//     comment:
-//       "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-//   },
-//   {
-//     name: "Miles Acosta",
-//     date: "12/20/2020",
-//     comment:
-//       "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-//   },
-// ];
-
 // NOT WORKING :(
 // const clearError = (commentsAddForm, commentsAddInput, commentsAddError) => {
 //   commentsAddForm.removeChild(commentsAddError);
@@ -40,33 +19,34 @@
 //   );
 // };
 
+const postComment = (newComment) => {
+  axios
+    .post(
+      "https://project-1-api.herokuapp.com/comments/?api_key=3e235735-6aa0-4a53-b7dd-cf57cdec1dce",
+      newComment
+    )
+    .then((results) => {
+      renderComments(results);
+      console.log(results);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 const addComment = (event) => {
   event.preventDefault();
 
   const inputCommentValue = event.target.comment.value;
   const inputNameValue = event.target.name.value;
 
-  postComment(inputNameValue, inputCommentValue);
-
-  const date = new Date();
-  const formattedDate =
-    (date.getMonth() > 8 ? date.getMonth() + 1 : "0" + (date.getMonth() + 1)) +
-    "/" +
-    (date.getDate() > 9 ? date.getDate() : "0" + date.getDate()) +
-    "/" +
-    date.getFullYear();
-
   const commentsObj = {
     name: inputNameValue,
     comment: inputCommentValue,
-    // date: formattedDate,
   };
 
-  // comments.unshift(comment);
   console.log(commentsObj);
-  // renderComments(commentsObj);
   postComment(commentsObj);
-  // clear everything from the form
   event.target.reset();
 };
 
@@ -76,24 +56,6 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   addComment(event);
 });
-
-// POST goes here, make sure it works on postman name and comment only
-// const postComment = (name, comment) => {
-const postComment = (comments) => {
-  axios
-    .post(
-      "https://project-1-api.herokuapp.com/comments/?api_key=3e235735-6aa0-4a53-b7dd-cf57cdec1dce",
-      comments
-    )
-
-    .then((result) => {
-      renderComments(comments);
-      console.log(result);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
 
 const elementMaker = (type, className, text) => {
   const element = document.createElement(type);
@@ -105,15 +67,14 @@ const elementMaker = (type, className, text) => {
   return element;
 };
 
-function renderComments(newUser) {
+function renderComments() {
   const commentsContainer = document.querySelector(".comments__container");
   commentsContainer.innerHTML = "";
 
   // axios.get takes the URL and returns a promise - success or error
   axios
     .get(
-      "https://project-1-api.herokuapp.com/comments/?api_key=3e235735-6aa0-4a53-b7dd-cf57cdec1dce",
-      newUser
+      "https://project-1-api.herokuapp.com/comments/?api_key=3e235735-6aa0-4a53-b7dd-cf57cdec1dce"
     )
     .then((response) => {
       // response.data is my array
