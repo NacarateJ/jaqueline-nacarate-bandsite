@@ -1,24 +1,3 @@
-// NOT WORKING :(
-// const clearError = (commentsAddForm, commentsAddInput, commentsAddError) => {
-//   commentsAddForm.removeChild(commentsAddError);
-//   commentsAddInput.classList.remove("comments__input-name--error");
-// };
-
-// const showError = () => {
-//   const commentsAddForm = document.querySelector(".comments__name-box");
-//   const commentsAddInput = document.querySelector(".comments__input-name");
-//   commentsAddInput.classList.add("comments__input-name--error");
-//   const commentsAddError = document.createElement("p");
-//   commentsAddError.textContent = "Please enter your name";
-//   commentsAddError.classList.add("comments__error");
-//   commentsAddForm.appendChild(commentsAddError);
-
-//   setTimeout(
-//     () => clearError(commentsAddForm, commentsAddInput, commentsAddError),
-//     2000
-//   );
-// };
-
 const postComment = (newComment) => {
   axios
     .post(
@@ -30,7 +9,7 @@ const postComment = (newComment) => {
       console.log(results);
     })
     .catch((error) => {
-      console.log(error);
+      console.log("Sorry! Something went wrong!");
     });
 };
 
@@ -94,7 +73,7 @@ function renderComments() {
         const commentsDate = elementMaker(
           "p",
           "comments__date",
-          comment.timestamp
+          date(new Date(comment.timestamp))
         );
         const commentsTxt = elementMaker("p", "comments__txt", comment.comment);
 
@@ -105,8 +84,15 @@ function renderComments() {
       });
     })
     .catch((error) => {
-      console.log(error);
+      console.log("Sorry! Something went wrong!");
     });
+}
+
+function date(date) {
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  return `${month}/${day}/${year}`;
 }
 
 renderComments();

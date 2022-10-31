@@ -49,15 +49,18 @@
 }
 .header__menu-item {
   height: 100%;
-  color: #afafaf;
+  color: #e1e1e1;
   width: 50%;
   text-align: center;
-  border-bottom: 4px solid transparent;
+  border-bottom: 3px solid transparent;
 }
 .header__menu-item--active {
   color: #ffffff;
-  border-bottom: 4px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
   padding-bottom: 1rem;
+}
+.header__menu-item:hover {
+  color: #ffffff;
 }
 
 /* styles for header on tablet device */
@@ -68,24 +71,35 @@
     padding-top: 1rem;
   }
   .header__band-logo {
+    margin-top: 1rem;
     padding: 0 0 1rem 2rem;
   }
   .header__navigation {
-    width: 30%;
+    margin-top: 1.5rem;
+    max-width: 30%;
   }
   .header__menu {
     padding-left: 4rem;
+    margin-bottom: 0;
   }
   .header__menu-item {
     text-align: left;
     margin-right: 5rem;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
   }
 }
 /* header styling for Desktop */
 @media only screen and (min-width: 1280px) {
+  .header {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
   .header__band-logo {
+    padding-top: 0.5rem;
     padding-left: 8rem;
+  }
+  .header__navigation {
+    max-width: 20%;
   }
 }
 .footer {
@@ -151,7 +165,7 @@
   }
   .footer__band-logo {
     top: 1rem;
-    left: 37.5rem;
+    right: 2rem;
   }
   .footer__contact {
     padding-right: 0;
@@ -172,7 +186,7 @@
     padding-right: 7rem;
   }
   .footer__band-logo {
-    left: 58.5rem;
+    right: 0;
   }
   .footer__nav-bar {
     gap: 4rem;
@@ -290,6 +304,7 @@ a {
   background-color: #fafafa;
 }
 .shows__title {
+  color: #323232;
   font-weight: 600;
   font-size: 2.5rem;
   margin-bottom: 1rem;
@@ -327,8 +342,7 @@ a {
   .shows__hidden-labels, .shows__cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    padding-left: 1rem;
-    padding-top: 1rem;
+    padding: 1rem;
   }
   .shows__label--hidden {
     display: none;
@@ -351,13 +365,9 @@ a {
   .shows__container {
     width: 80%;
   }
-  .shows__hidden-labels, .shows__cards {
-    padding-left: 1rem;
-    padding-top: 1rem;
-  }
   .shows__button {
     padding: 0.5rem;
     width: 80%;
-    margin-left: 1.5rem;
+    margin-left: 2rem;
   }
 }/*# sourceMappingURL=shows.css.map */

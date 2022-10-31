@@ -6,12 +6,13 @@ axios
 
   // .then handles the promise - success or error
   .then((response) => {
+    // response.data is my new shows array
     display(response.data);
-    eventListener();
+    backGroundColor();
     console.log(response.data);
   })
   .catch((error) => {
-    console.log(error);
+    console.log("Sorry! Something went wrong!");
   });
 
 const elementMaker = (type, className, text) => {
@@ -84,7 +85,7 @@ const display = (apiArray) => {
 };
 
 // Function to add backGroundColor to shows cards onclick
-const eventListener = () => {
+const backGroundColor = () => {
   const showsCardsBackGround = document.querySelectorAll(".shows__cards");
   for (let i = 0; i < showsCardsBackGround.length; i++) {
     const eachShowsCardsBackGround = showsCardsBackGround[i];
@@ -104,7 +105,7 @@ const eventListener = () => {
   }
 };
 
-// Function to fix date
+// Function to fix dates
 function showsDate(date) {
   const options = {
     weekday: "short",

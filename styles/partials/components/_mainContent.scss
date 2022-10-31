@@ -34,6 +34,7 @@
 
 // Main for Mobile
 .about__title {
+  color: $band-site-black;
   padding: 0 1rem 0 1rem;
   font-weight: 600;
   font-size: 1.5rem;
@@ -51,20 +52,28 @@
   }
 
   &__quote {
+    color: $band-site-black;
     font-weight: 600;
     inline-size: 19rem;
 
     &-name {
+      color: $band-site-black;
       font-weight: 600;
     }
   }
 
   &__band-name {
+    color: $band-site-black;
     padding-top: 1rem;
     font-weight: 600;
   }
+
+  &__band-history {
+    color: $band-site-black;
+  }
 }
 
+// Photo gallery for mobile
 .gallery {
   background-color: $alabaster;
   display: flex;
@@ -72,6 +81,7 @@
   padding: 0 1rem 0 1rem;
 
   &__title {
+    color: $band-site-black;
     font-size: 2rem;
     font-weight: 600;
   }
@@ -92,6 +102,7 @@
   padding-right: 1rem;
 
   &__title {
+    color: $band-site-black;
     font-weight: 600;
   }
 
@@ -105,6 +116,12 @@
     width: 5rem;
     clip-path: circle();
     margin-top: 1.5rem;
+  }
+
+  &__boxes {
+    &-container {
+      width: 100%;
+    }
   }
 
   &__input {
@@ -125,6 +142,7 @@
 
   ::placeholder {
     color: $band-site-black;
+    font-family: "Avenir Next";
   }
 
   &__label {
@@ -177,8 +195,9 @@
   }
 
   &__txt {
-    color: $band-site-dark-black;
+    color: $band-site-black;
     margin-top: 0;
+    margin-bottom: 0;
   }
 
   &__fans {
@@ -186,12 +205,13 @@
     display: flex;
     gap: 1rem;
     padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   &__avatar {
     background-color: $mercury;
     height: 3.5rem;
-    width: 18rem;
+    width: 5rem;
     clip-path: circle();
   }
 
@@ -251,6 +271,7 @@
     }
   }
 
+  // Photo gallery for tablet
   .gallery {
     padding: 0 2rem 2rem 2rem;
 
@@ -292,12 +313,12 @@
     }
 
     &__fans {
-      padding-top: 1.5rem;
-      padding-bottom: 1rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
     }
     &__button {
       width: 40%;
-      margin-left: 18.6rem;
+      margin-left: auto;
     }
   }
 }
@@ -331,6 +352,7 @@
     }
   }
 
+  // Photo gallery for desktop
   .gallery {
     padding: 0 6rem 2.5rem 6rem;
 
@@ -361,7 +383,7 @@
     }
 
     &__button {
-      margin-left: 20rem;
+      margin-left: auto;
     }
   }
 }
