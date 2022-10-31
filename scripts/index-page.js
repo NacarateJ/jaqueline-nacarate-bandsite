@@ -1,44 +1,17 @@
-const comments = [
-  {
-    name: "Connor Walton",
-    date: "02/17/2021",
-    comment:
-      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-  },
-  {
-    name: "Emilie Beach",
-    date: "01/09/2021",
-    comment:
-      "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-  },
-  {
-    name: "Miles Acosta",
-    date: "12/20/2020",
-    comment:
-      "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-  },
-];
-
-// NOT WORKING :(
-// const clearError = (commentsAddForm, commentsAddInput, commentsAddError) => {
-//   commentsAddForm.removeChild(commentsAddError);
-//   commentsAddInput.classList.remove("comments__input-name--error");
-// };
-
-// const showError = () => {
-//   const commentsAddForm = document.querySelector(".comments__name-box");
-//   const commentsAddInput = document.querySelector(".comments__input-name");
-//   commentsAddInput.classList.add("comments__input-name--error");
-//   const commentsAddError = document.createElement("p");
-//   commentsAddError.textContent = "Please enter your name";
-//   commentsAddError.classList.add("comments__error");
-//   commentsAddForm.appendChild(commentsAddError);
-
-//   setTimeout(
-//     () => clearError(commentsAddForm, commentsAddInput, commentsAddError),
-//     2000
-//   );
-// };
+const postComment = (newComment) => {
+  axios
+    .post(
+      "https://project-1-api.herokuapp.com/comments/?api_key=3e235735-6aa0-4a53-b7dd-cf57cdec1dce",
+      newComment
+    )
+    .then((results) => {
+      renderComments(results);
+      console.log(results);
+    })
+    .catch((error) => {
+      console.log("Sorry! Something went wrong!");
+    });
+};
 
 const addComment = (event) => {
   event.preventDefault();
@@ -46,29 +19,22 @@ const addComment = (event) => {
   const inputCommentValue = event.target.comment.value;
   const inputNameValue = event.target.name.value;
 
-  const date = new Date();
-  const formattedDate =
-    (date.getMonth() > 8 ? date.getMonth() + 1 : "0" + (date.getMonth() + 1)) +
-    "/" +
-    (date.getDate() > 9 ? date.getDate() : "0" + date.getDate()) +
-    "/" +
-    date.getFullYear();
-
   const commentsObj = {
     name: inputNameValue,
     comment: inputCommentValue,
-    date: formattedDate,
   };
 
-  comments.unshift(commentsObj);
-  display(comments);
-
-  // clear everything from the form
+  console.log(commentsObj);
+  postComment(commentsObj);
   event.target.reset();
 };
 
 const form = document.querySelector(".comments__form");
-form.addEventListener("submit", (event) => addComment(event));
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  addComment(event);
+});
 
 const elementMaker = (type, className, text) => {
   const element = document.createElement(type);
@@ -80,34 +46,53 @@ const elementMaker = (type, className, text) => {
   return element;
 };
 
-const displayComments = (commentsObj, commentsContainer) => {
-  const commentsFans = elementMaker("div", "comments__fans");
-
-  const commentsAvatar = elementMaker("div", "comments__avatar");
-
-  const commentsInfo = elementMaker("div", "comments__info");
-
-  const commentsWrapper = elementMaker("div", "comments__wrapper");
-
-  const commentsName = elementMaker("p", "comments__name", commentsObj.name);
-
-  const commentsDate = elementMaker("p", "comments__date", commentsObj.date);
-
-  const commentsTxt = elementMaker("p", "comments__txt", commentsObj.comment);
-
-  commentsContainer.appendChild(commentsFans);
-  commentsFans.append(commentsAvatar, commentsInfo);
-  commentsInfo.append(commentsWrapper, commentsTxt);
-  commentsWrapper.append(commentsName, commentsDate);
-};
-
-const display = () => {
+function renderComments() {
   const commentsContainer = document.querySelector(".comments__container");
   commentsContainer.innerHTML = "";
 
-  for (let i = 0; i < comments.length; i++) {
-    displayComments(comments[i], commentsContainer);
-  }
-};
+  // axios.get takes the URL and returns a promise - success or error
+  axios
+    .get(
+      "https://project-1-api.herokuapp.com/comments/?api_key=3e235735-6aa0-4a53-b7dd-cf57cdec1dce"
+    )
+    .then((response) => {
+      // response.data is my array
+      const commentsData = response.data;
 
-display();
+      const sortedCommentsData = commentsData.sort(function (a, b) {
+        return b.timestamp - a.timestamp;
+      });
+
+      sortedCommentsData.forEach((comment) => {
+        console.log(comment);
+        const commentsFans = elementMaker("div", "comments__fans");
+        const commentsAvatar = elementMaker("div", "comments__avatar");
+        const commentsInfo = elementMaker("div", "comments__info");
+        const commentsWrapper = elementMaker("div", "comments__wrapper");
+        const commentsName = elementMaker("p", "comments__name", comment.name);
+        const commentsDate = elementMaker(
+          "p",
+          "comments__date",
+          date(new Date(comment.timestamp))
+        );
+        const commentsTxt = elementMaker("p", "comments__txt", comment.comment);
+
+        commentsContainer.appendChild(commentsFans);
+        commentsFans.append(commentsAvatar, commentsInfo);
+        commentsInfo.append(commentsWrapper, commentsTxt);
+        commentsWrapper.append(commentsName, commentsDate);
+      });
+    })
+    .catch((error) => {
+      console.log("Sorry! Something went wrong!");
+    });
+}
+
+function date(date) {
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  return `${month}/${day}/${year}`;
+}
+
+renderComments();

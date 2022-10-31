@@ -2,7 +2,6 @@
 @use "../breakpoints" as *;
 @use "../fonts";
 
-
 /* styles for header for mobile */
 .header {
   background-color: $band-site-black;
@@ -24,14 +23,19 @@
 
     &-item {
       height: 100%;
-      color: $silver;
+      color: $mercury;
       width: 50%;
       text-align: center;
-      border-bottom: 4px solid transparent;
+      border-bottom: 3px solid transparent;
+
       &--active {
         color: $white;
-        border-bottom: 4px solid $white;
+        border-bottom: 3px solid $white;
         padding-bottom: 1rem;
+      }
+
+      &:hover {
+        color: $white;
       }
     }
   }
@@ -45,20 +49,23 @@
     padding-top: 1rem;
 
     &__band-logo {
+      margin-top: 1rem;
       padding: 0 0 1rem 2rem;
     }
 
     &__navigation {
-      width: 30%;
+      margin-top: 1.5rem;
+      max-width: 30%;
     }
 
     &__menu {
       padding-left: 4rem;
+      margin-bottom: 0;
 
       &-item {
         text-align: left;
         margin-right: 5rem;
-        padding-bottom: 1rem;
+        padding-bottom: 2rem;
       }
     }
   }
@@ -67,8 +74,16 @@
 /* header styling for Desktop */
 @include large {
   .header {
+    padding-top: 0;
+    padding-bottom: 0;
+
     &__band-logo {
+      padding-top: 0.5rem;
       padding-left: 8rem;
+    }
+
+    &__navigation {
+      max-width: 20%;
     }
   }
 }
