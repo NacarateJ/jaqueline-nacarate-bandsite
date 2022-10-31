@@ -49,15 +49,18 @@
 }
 .header__menu-item {
   height: 100%;
-  color: #afafaf;
+  color: #e1e1e1;
   width: 50%;
   text-align: center;
-  border-bottom: 4px solid transparent;
+  border-bottom: 3px solid transparent;
 }
 .header__menu-item--active {
   color: #ffffff;
-  border-bottom: 4px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
   padding-bottom: 1rem;
+}
+.header__menu-item:hover {
+  color: #ffffff;
 }
 
 /* styles for header on tablet device */
@@ -68,24 +71,35 @@
     padding-top: 1rem;
   }
   .header__band-logo {
+    margin-top: 1rem;
     padding: 0 0 1rem 2rem;
   }
   .header__navigation {
-    width: 30%;
+    margin-top: 1.5rem;
+    max-width: 30%;
   }
   .header__menu {
     padding-left: 4rem;
+    margin-bottom: 0;
   }
   .header__menu-item {
     text-align: left;
     margin-right: 5rem;
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
   }
 }
 /* header styling for Desktop */
 @media only screen and (min-width: 1280px) {
+  .header {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
   .header__band-logo {
+    padding-top: 0.5rem;
     padding-left: 8rem;
+  }
+  .header__navigation {
+    max-width: 20%;
   }
 }
 .hero {
@@ -116,6 +130,7 @@
 }
 
 .about__title {
+  color: #323232;
   padding: 0 1rem 0 1rem;
   font-weight: 600;
   font-size: 1.5rem;
@@ -134,15 +149,21 @@
      object-fit: cover;
 }
 .about__quote {
+  color: #323232;
   font-weight: 600;
   inline-size: 19rem;
 }
 .about__quote-name {
+  color: #323232;
   font-weight: 600;
 }
 .about__band-name {
+  color: #323232;
   padding-top: 1rem;
   font-weight: 600;
+}
+.about__band-history {
+  color: #323232;
 }
 
 .gallery {
@@ -152,6 +173,7 @@
   padding: 0 1rem 0 1rem;
 }
 .gallery__title {
+  color: #323232;
   font-size: 2rem;
   font-weight: 600;
 }
@@ -170,6 +192,7 @@
   padding-right: 1rem;
 }
 .comments__title {
+  color: #323232;
   font-weight: 600;
 }
 .comments__form {
@@ -182,6 +205,9 @@
   -webkit-clip-path: circle();
           clip-path: circle();
   margin-top: 1.5rem;
+}
+.comments__boxes-container {
+  width: 100%;
 }
 .comments__input-name, .comments__input-comments {
   background-color: #fafafa;
@@ -197,12 +223,15 @@
 }
 .comments ::-moz-placeholder {
   color: #323232;
+  font-family: "Avenir Next";
 }
 .comments :-ms-input-placeholder {
   color: #323232;
+  font-family: "Avenir Next";
 }
 .comments ::placeholder {
   color: #323232;
+  font-family: "Avenir Next";
 }
 .comments__label-name, .comments__label-comment {
   color: #afafaf;
@@ -242,19 +271,21 @@
   margin-top: 0.5rem;
 }
 .comments__txt {
-  color: #000000;
+  color: #323232;
   margin-top: 0;
+  margin-bottom: 0;
 }
 .comments__fans {
   border-bottom: 1px solid #e1e1e1;
   display: flex;
   gap: 1rem;
   padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 .comments__avatar {
   background-color: #e1e1e1;
   height: 3.5rem;
-  width: 18rem;
+  width: 5rem;
   -webkit-clip-path: circle();
           clip-path: circle();
 }
@@ -330,12 +361,12 @@
     width: 100%;
   }
   .comments__fans {
-    padding-top: 1.5rem;
-    padding-bottom: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
   .comments__button {
     width: 40%;
-    margin-left: 18.6rem;
+    margin-left: auto;
   }
 }
 @media only screen and (min-width: 1280px) {
@@ -379,7 +410,7 @@
     padding-left: 20rem;
   }
   .comments__button {
-    margin-left: 20rem;
+    margin-left: auto;
   }
 }
 .footer {
@@ -445,7 +476,7 @@
   }
   .footer__band-logo {
     top: 1rem;
-    left: 37.5rem;
+    right: 2rem;
   }
   .footer__contact {
     padding-right: 0;
@@ -466,7 +497,7 @@
     padding-right: 7rem;
   }
   .footer__band-logo {
-    left: 58.5rem;
+    right: 0;
   }
   .footer__nav-bar {
     gap: 4rem;

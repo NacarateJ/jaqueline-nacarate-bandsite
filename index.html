@@ -160,12 +160,13 @@
             <div class="comments__name-box">
               <label class="comments__label-name" for="name">NAME</label>
               <input
-                class="comments__input-name"
+                class="comments__input-name comments__input-name--active"
                 id="name"
                 type="text"
                 name="commentsInput"
                 placeholder="Enter your name"
               />
+              <small></small>
             </div>
 
             <div class="comments__comment-box">
@@ -173,7 +174,7 @@
                 >COMMENT</label
               >
               <textarea
-                class="comments__input-comments"
+                class="comments__input-comments comments__input-comments--active"
                 id="comment"
                 type="text"
                 name="comment"
@@ -181,6 +182,7 @@
                 cols="30"
                 placeholder="Add a new comment"
               ></textarea>
+              <small></small>
             </div>
 
             <div class="comments__button">
@@ -257,7 +259,9 @@
         </div>
 
         <div class="footer__band-logo">
-          <img src="./assets/Logo/Logo-bandsite.svg" alt="band site logo" />
+          <a href="./index.html">
+            <img src="./assets/Logo/Logo-bandsite.svg" alt="band site logo"
+          /></a>
         </div>
       </div>
 
