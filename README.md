@@ -39,6 +39,12 @@ The Band Site is a project for an up-and-coming fictional band. Creative mock up
   
 
 
+
+
+https://user-images.githubusercontent.com/114256348/209738241-30df16ab-cd82-4875-9202-9e5d6d1e4ee9.mp4
+
+
+
   
   </div>
 
