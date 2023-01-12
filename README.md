@@ -33,19 +33,16 @@ The Band Site is a project for an up-and-coming fictional band. Creative mock up
 ## Tech Stack
 * HTML, SASS, JavaScript, Postman and Axios.
 
+## Installation:
+1. To install and run the project you will need to clone or dowload the file - [jaqueline-nacarate-bandsite](https://github.com/NacarateJ/jaqueline-nacarate-bandsite);
+2. Enable your ```Live Server Extension``` in your Status Bar In VS Code and go live.
+
 ## Demo
 
 <div align="center">
-  
-
-
-
 
 https://user-images.githubusercontent.com/114256348/209738241-30df16ab-cd82-4875-9202-9e5d6d1e4ee9.mp4
 
-
-
-  
   </div>
 
 
